@@ -1,0 +1,342 @@
+/* pages/bookOrder/bookOrder.wxss */
+
+/* pages/bookOrder/bookOrder.wxss */
+
+page {
+  background-color: #fbf9fe;
+}
+
+.scrollView {
+  width: 100%;
+  padding-bottom: 50px;
+}
+
+.personInfoView {
+  margin-top: 5px;
+  background-color: white;
+  width: 100%;
+  height: 180px;
+}
+
+.TopTitle {
+  margin-left: 10px;
+  margin-top: 5px;
+  width: 80px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 13px;
+}
+
+.headImageView {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 10px;
+  margin-top: 0px;
+  width: calc(100% - 20px);
+  height: 60px;
+  align-items: center;
+}
+
+.headImage {
+  margin: 0rpx;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+.TitleView {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 0px;
+  margin-top: 0px;
+  width: calc(100% - 20px);
+  height: 40px;
+  align-items: center;
+}
+
+.title {
+  margin-left: 10px;
+  font-size: 12px;
+  height: 40px;
+  line-height: 40px;
+  color: gray;
+}
+
+.valueText {
+  margin-right: 5px;
+  font-size: 12px;
+  color: gray;
+}
+
+.opmetoryTitleView {
+  margin-top: 5px;
+  width: 100%;
+  height: 45px;
+  background-color: white;
+}
+
+.selectOpmetoryView {
+  width: 100%;
+  height: 79px;
+  display: flex;
+  flex-direction: column;
+}
+
+.hasOpmetory {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 35px;
+  background-color: white;
+}
+
+.opmetroyLine {
+  margin-left: 10px;
+  margin-right: 10px;
+  height: 1rpx;
+  background-color: lightgrey;
+}
+
+.selectOpmetoryInfo {
+  width: 100%;
+  height: 140px;
+  background-color: white;
+}
+
+.bookOpmetory {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 35px;
+  background-color: white;
+}
+
+.iconImage {
+  margin-left: 10px;
+  width: 20px;
+  height: 20px;
+}
+
+.opmetoryTitleText {
+  font-size: 12px;
+  color: gray;
+}
+
+.storeAddressView {
+  margin-top: 5px;
+  width: 100%;
+  height: 100px;
+  background-color: white;
+}
+
+.addressView {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  margin-top: 0px;
+  width: calc(100%-10px);
+  height: 50px;
+}
+
+.addressText {
+  font-size: 12px;
+  height: 25px;
+  line-height: 25px;
+  color: gray;
+}
+
+.productTitleView {
+  margin-top: 5px;
+  width: 100%;
+  height: 45px;
+  background-color: white;
+}
+
+.productView {
+  display: flex;
+  margin-left: 0px;
+  margin-top: 0px;
+  width: 100%;
+  height: 100px;
+  align-items: center;
+  background-color: white;
+}
+
+.productImage {
+  margin-left: 20px;
+  width: 80px;
+  height: 80px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}
+
+.productInfo {
+  margin-left: 5px;
+  margin-top: 5px;
+  width: calc(100% - 140px);
+  height: calc(100%-10px);
+}
+
+.productName {
+  height: 50px;
+}
+
+.productNameText {
+  font-size: 12px;
+  color: gray;
+}
+
+.priceView {
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+}
+
+.price {
+  font-size: 12px;
+  color: gray;
+  line-height: 50px;
+}
+
+.numText {
+  font-size: 12px;
+  color: lightgray;
+  line-height: 50px;
+  padding-right: 5px;
+  text-align: center;
+}
+
+.footView {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  height: 50px;
+  bottom: 0px;
+  background-color: #63a0d4;
+  line-height: 50px;
+  color: white;
+  font-size: 13px;
+}
+
+.sureText {
+  width: 100%;
+  line-height: 50px;
+  color: white;
+  font-size: 13px;
+  text-align: center;
+}
+
+.line {
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 0px;
+  height: 1px;
+  background-color: lightgray;
+}
+
+.opmetoryInfoView {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: calc(100%-30px);
+  height: 100%;
+}
+
+.rightView {
+  display: flex;
+  flex-direction: row;
+  margin-top: 5px;
+  width: 100%;
+  height: 70px;
+}
+
+.rightOpmetroy {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-left: 5px;
+  width: calc(100% - 50px);
+  height: 100%;
+}
+
+.IconView {
+  margin-top: 0px;
+  margin-left: 5px;
+  width: 20px;
+  height: 20px;
+}
+
+.iconImage {
+  width: 20px;
+  height: 20px;
+}
+
+.opmetoryInfo {
+  display: flex;
+  justify-content: space-between;
+  width: calc((100% - 20px)/2);
+  height: 15px;
+}
+
+.opmetorySpace {
+  width: calc((100% - 20px)/2);
+  height: 15px;
+}
+
+.opmetoryText {
+  margin-left: 5px;
+  height: 100%;
+  width: 80px;
+  line-height: 15px;
+  color: gray;
+  font-size: 12px;
+}
+
+.opmetoryValue {
+  margin-right: 5px;
+  font-size: 12px;
+  line-height: 15px;
+  color: gray;
+}
+
+.leftView {
+  display: flex;
+  flex-direction: row;
+  margin-top: 0px;
+  width: 100%;
+  height: 70px;
+}
+
+.leftOpmetroy {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-left: 5px;
+  width: calc(100% - 50px);
+  height: 100%;
+}
+
+.pdView {
+  margin-top: 0px;
+  margin-left: 35px;
+  width: calc(100% - 35px);
+  height: 15px;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}

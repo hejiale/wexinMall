@@ -1,0 +1,71 @@
+<!--<view class="city-picker-bg {{showOrHide}}">
+  <view id="city-picker-cover"></view>
+  <view id="city-picker">
+    <view id="city-title">
+      <view class="city-left-title-item" bindtap="cancelPick">取消</view>
+      <view class="city-right-title-item" bindtap="enterPick">确定</view>
+    </view>
+    <view class="city-line"></view>
+    <view class="divider"></view>
+    <view id="cover">
+      <view class="cover-cover"></view>
+      <view class="divider-big"></view>
+      <view class="cover-no"></view>
+      <view class="divider-big"></view>
+      <view class="cover-cover"></view>
+    </view>
+    <view id="picker-container">
+      <scroll-view class="city-scroll" scroll-y="true" bindscroll="scrollProvince">
+        <view class="up-white"></view>
+        <view wx:for="{{provinces}}" wx:key="{{item}}" class="city-text-item" id="{{item}}">{{item}}</view>
+        <view class="down-white"></view>
+      </scroll-view>
+      <scroll-view class="city-scroll" scroll-y="true" bindscroll="scrollCity">
+        <view class="up-white"></view>
+        <view wx:for="{{citys}}" wx:key="{{item}}" class="city-text-item" data-text="{{item}}">{{item}}</view>
+        <view class="down-white"></view>
+      </scroll-view>
+      <scroll-view class="city-scroll" scroll-y="true" bindscroll="scrollArea">
+        <view class="up-white"></view>
+        <view wx:for="{{areas}}" wx:key="{{item}}" class="city-text-item" data-text="{{item}}">{{item}}</view>
+        <view class="down-white"></view>
+      </scroll-view>
+    </view>
+  </view>
+</view>-->
+<form>
+  <view class="page">
+    <view class="contacterView">
+      <text class="contacterText">收货人</text>
+      <input class="inputText" bindinput="bindContacterInput" value="{{contacter.length > 0 ? contacter: currentAddressObject.contactorName}}" />
+    </view>
+    <view class="line"></view>
+    <view class="contactPhoneView">
+      <text class="contacterText">联系电话</text>
+      <input class="inputText" bindinput="bindContacterPhoneInput" type="number" value="{{contactPhone.length > 0 ?contactPhone : currentAddressObject.contactorPhone}}" maxlength="11"/>
+    </view>
+
+    <!--<view class="line"></view>
+    <view class="contactCityView">
+      <text class="contacterText">所在地区</text>
+      <text class="cityText" bindtap="choosearea"></text>
+    </view>-->
+    <view class="line"></view>
+    <view class="contactTownView">
+      <text class="contacterText">联系地址</text>
+      <input class="inputText" bindinput="bindContacterAddressInput" value="{{contactAddress.length > 0 ? contactAddress:currentAddressObject.detailAdress}}" />
+    </view>
+
+    <!--<view class="line"></view>
+    <view class="contactAddressView ">
+      <input class="inputAddressText" bindinput="bindContacterAddressInput" value="{{locationStr.length > 0 ? locationStr:currentAddressObject.detailAdress}}"/>
+    </view>-->
+    <view class="setDefaultView" bindtap="onSetDefaultAddress" wx:if="{{!currentAddressObject.ifDefault&&currentAddressObject != null}}">
+      <text class="setDefaultText">设为默认地址</text>
+    </view>
+    <view class="footView">
+      <text class="sureText" bindtap="onSaveAddress">保存</text>
+      <text class="cancelText" bindtap="onDeleteAddress" wx:if="{{currentAddressObject != null}}">删除收货地址</text>
+    </view>
+  </view>
+</form>

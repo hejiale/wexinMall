@@ -1,0 +1,79 @@
+/* pages/bindPhone/bindPhone.wxss */
+/* pages/bindPhone/bindPhone.wxss */
+
+page {
+  background-color: #fbf9fe;
+}
+
+.inputView {
+  margin-top: 20px;
+  height: 100px;
+  background-color: white;
+}
+
+.userNameView {
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+  margin-right: 0px;
+  height: 50%;
+  background-image: url(../images/account-icon.png);
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: 20px 20px;
+}
+
+.passwordView {
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+  margin-right: 5px;
+  height: 50%;
+  background-image: url(../images/lock-icon.png);
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: 20px 20px;
+}
+
+.inputLine {
+  margin-left: 5px;
+  margin-right: 5px;
+  height: 1px;
+  background-color: lightgray;
+}
+
+.inputTextView {
+  margin-left: 25px;
+  width: 70%;
+  height: 50%;
+}
+
+.inputText {
+  line-height: 50px;
+  font-size: 12px;
+}
+
+.codeButton {
+  margin-right: 5px;
+  background-color: lightgray;
+  color: white;
+  font-size: 11px;
+  height: 30px;
+  width: 85px;
+  line-height: 30px;
+}
+
+.bindView {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  height: 35px;
+}
+
+.bindButton {
+  width: 200px;
+  line-height: 35px;
+  color: white;
+  font-size: 14px;
+  text-align: center;
+}

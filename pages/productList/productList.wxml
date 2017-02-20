@@ -1,0 +1,132 @@
+
+<!--<view class="class-bg {{showOrHide}}">
+  <view id="classViewCover" bindtap="onBgClicked"></view>
+  <view class="classTopView">
+    <view class="classTitleView" bindtap="onClassItemClicked">
+      <text class="classText" style="{{isClassSelected ? 'color: #63a0d4;':'color: grey;'}}">类目</text>
+      <image src="{{isClassSelected ? '../images/jshop_list_arrow_down.png' : '../images/jshop_list_arrow_up.png' }}" class="icon"></image>
+    </view>
+    <view class="topLine"></view>
+    <view class="classTitleView" bindtap="onPropertyClicked">
+      <text class="classText" style="{{isPropetySelected ? 'color: #63a0d4;':'color: grey;'}}">属性</text>
+      <image src="{{isPropetySelected ? '../images/jshop_list_arrow_down.png' : '../images/jshop_list_arrow_up.png' }}" class="icon"></image>
+    </view>
+    <view class="topLine"></view>
+    <view class="classTitleView" bindtap="onPriceClicked">
+      <text class="classText" style="{{isPriceSelected ? 'color: #63a0d4;':'color: grey;'}}">价格区间</text>
+      <image src="{{isPriceSelected ? '../images/jshop_list_arrow_down.png' : '../images/jshop_list_arrow_up.png' }}" class="icon"></image>
+    </view>
+  </view>
+  <view class="classListView {{showClass}}">
+    <scroll-view scroll-y="true">
+      <block wx:for-items="{{classList}}">
+        <view class="classItem" data-key="{{item}}" bindtap="onClassTypeClicked">
+          <text class="classItemText">{{item}}</text>
+          <image src="../images/icon_tick.png" wx:if="{{currentTypeName==item}}" class="checkedImage"></image>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+  <view class="propertyView {{showProperty}}">
+    <view class="leftKeyView">
+      <scroll-view scroll-y="true">
+        <block wx:for-items="{{categoryNameList}}">
+          <view class="classItem" data-key="{{item}}" bindtap="onCategoryClick">
+            <text class="classItemText">{{item}}</text>
+            <image src="../images/icon_tick.png" wx:if="{{currentCategory==item}}" class="checkedImage"></image>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+    <view class="rightValueView">
+      <scroll-view scroll-y="true" class="scrollView">
+        <block wx:for-items="{{propertyNameList}}">
+          <view class="classItem" data-key="{{item}}" bindtap="onPropertyClick">
+            <text class="classItemText">{{item}}</text>
+            <image src="../images/icon_tick.png" wx:if="{{currentProperty==item}}" class="checkedImage"></image>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+  </view>
+  <view class="priceView {{showPrice}}">
+    <view class="inputPriceView">
+      <input placeholder="最低价" placeholder-style="font-size: 13px;" class="inputPriceText" type="number" />
+      <view class="priceSpace"></view>
+      <input placeholder="最高价" placeholder-style="font-size: 13px;" class="inputPriceText" type="number" />
+    </view>
+    <view class="sureView">
+      <text class="sureText">完成</text>
+    </view>
+  </view>
+</view>-->
+<view class="showPropertyBgView {{showOrHide}}">
+  <view id="classViewCover" bindtap="onBgClicked"></view>
+  <view class="popContentView" animation="{{animationData}}">
+    <view class="propertyClassView">
+      <scroll-view scroll-y="true" class="scrollView" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" style="height:calc(100% - 40px)">
+        <view class="priceView">
+          <text class="TitleText">价格</text>
+          <view class="priceSpaceView">
+            <text class="priceSpaceText">价格区间(元)</text>
+            <input placeholder="最低价" class="inputPriceText" type="number" bindblur="onStartPriceClicked" value="{{startPrice}}" />
+            <view class="priceSpace"></view>
+            <input placeholder="最高价" class="inputPriceText" type="number" bindblur="onEndPriceClicked" value="{{endPrice}}" />
+          </view>
+        </view>
+        <view class="popClassView">
+          <text class="TitleText">类别</text>
+          <view class="classesView">
+            <block wx:for-items="{{classList}}">
+              <view class="classItem" style="background-color: #fbf9fe;" wx:if="{{currentTypeName != item}}" data-key="{{item}}" bindtap="onUnSelectedClass">
+                <label class="classItemText" style="color:gray">{{item}}</label>
+              </view>
+              <view class="classItem" style="background-color: orangered;" wx:if="{{currentTypeName == item}}" bindtap="onSelectedClass" data-key="{{item}}">
+                <label class="classItemText" style="color: white;">{{item}}</label>
+              </view>
+            </block>
+          </view>
+        </view>
+        <block wx:for-items="{{allProperty}}">
+          <view class="popPropertyView">
+            <text class="TitleText">{{item.title}}</text>
+            <view class="propertysView">
+              <block wx:for-items="{{item.value}}">
+                <view class="classItem" data-key="{{item}}" bindtap="onSelectProperty" style="background-color: #fbf9fe;" wx:if="{{!item.isSelected}}">
+                  <text class="classItemText" style="color:gray">{{item.title}}</text>
+                </view>
+                <view class="classItem" data-key="{{item}}" bindtap="onSelectProperty" style="background-color: orangered;" wx:if="{{item.isSelected}}">
+                  <text class="classItemText" style="color:white">{{item.title}}</text>
+                </view>
+              </block>
+            </view>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+    <view class="footView" bindtap="onSureFilterProducts">完成</view>
+  </view>
+</view>
+<view class="page {{showContent}}">
+  <view class="search">
+    <view class="scan" bindtap="onClassClicked">
+      <image class="widgets-img" src="../images/icon_class.png" mode="aspectFit" />
+      <text style="font-size: 11px;margin-top: 5px;color: lightgrey;">分类</text>
+    </view>
+    <view class="search-input">
+      <image class="search-icon" src="../images/icon_search.png" mode="aspectFit" />
+      <input class="serach-text" placeholder-style="font-size:12px;color:lightgrey;" placeholder="搜索本店所有商品" bindconfirm="onSearchProduct" />
+    </view>
+  </view>
+  <scroll-view scroll-y="true" class="productListView">
+    <block wx:for-items="{{productList}}">
+      <view class="productView">
+        <image src="{{item.photos['缩略图'].photoLinkNormal}}" class="productImage" mode="aspectFit" bindtap="onProductDetail" data-key="{{item}}"></image>
+        <view class="productInfoView">
+          <text class="productText">{{item.name}}</text>
+          <text class="priceText">￥ {{item.suggestPrice}}</text>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+</view>

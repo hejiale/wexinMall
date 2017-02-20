@@ -1,0 +1,163 @@
+/* pages/address/address.wxss */
+
+/* pages/person/address/address.wxss */
+
+page {
+  background-color: #fbf9fe;
+}
+
+.scroll-container {
+  width: 100%;
+  padding-bottom: 40px;
+}
+
+.CellItem {
+  width: 100%;
+  height: 100px;
+  background-color: #fbf9fe;
+}
+
+.CellContentView {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 95%;
+  background-color: white;
+}
+
+.addressLeftView {
+  width: 90%;
+  height: 100%;
+}
+
+.addressRightView {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+  height: 100%;
+}
+
+.addressArrowImage {
+  width: 8px;
+  height: 14px;
+}
+
+.topView {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nameView {
+  margin-left: 20px;
+  margin-top: 20px;
+  height: 25px;
+  line-height: 25px;
+}
+
+.userNameText {
+  font-size: 12px;
+}
+
+.phoneView {
+  margin-right: 30px;
+  margin-top: 20px;
+  height: 25px;
+  line-height: 25px;
+}
+
+.phoneText {
+  font-size: 12px;
+  text-align: right;
+}
+
+.addressView {
+  margin-left: 20px;
+  margin-top: 5px;
+  height: 35px;
+  line-height: 35px;
+}
+
+.addressText {
+  font-size: 12px;
+}
+
+.line {
+  background-color: #dcdcdc;
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  height: 1px;
+}
+
+.bottomView {
+  width: 100%;
+  margin-bottom: 0px;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.leftView {
+  margin-left: 5px;
+  width: 150px;
+  display: flex;
+  align-content: center;
+  align-items: center;
+}
+
+.icon {
+  margin-left: 5px;
+}
+
+.iconText {
+  font-size: 12px;
+  margin-left: 5px;
+}
+
+.rightView {
+  width: 100px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.editView {
+  margin-left: 0px;
+  margin-top: 0px;
+  width: 50%;
+  line-height: 40px;
+}
+
+.editText {
+  font-size: 12px;
+  color: orange;
+}
+
+.deleteView {
+  margin-right: 0px;
+  margin-top: 0px;
+  width: 50%;
+  line-height: 40px;
+}
+
+.deleteText {
+  font-size: 12px;
+}
+
+.footView {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+}
+
+.footText {
+  background-color: #63a0d4;
+  color: white;
+  font-size: 13px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+}

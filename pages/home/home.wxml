@@ -1,0 +1,123 @@
+<view class="page">
+  <view class="alertView {{showAlert}}">
+    <view class="textView">
+      <text class="loginText">请先选择店铺</text>
+    </view>
+    <view class="clickView">
+      <button class="loginButton" bindtap="onStoreSelected">店铺</button>
+    </view>
+  </view>
+  <view class="contentView {{showContent}}">
+    <view class="topView">
+      <swiper class="swiper-box" indicator-dots="true" autoplay="true">
+        <block wx:for-items="{{template[0].imageTemplateDetails}}">
+          <swiper-item>
+            <image src="{{item.photoUrl}}" class="bannerImage"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+      <view class="menuView">
+        <view class="storeNameView">
+          <view class="glassesView">
+            <view class="glassBgView">
+              <text class="glassText">{{template[0].mainTitle}}</text>
+            </view>
+          </view>
+          <text class="storeText">{{template[0].subTitle}}</text>
+        </view>
+        <view class="menuItem">
+          <view class="spaceLine"></view>
+          <view class="scan" bindtap="onClassClicked">
+            <image class="widgets-img" src="../images/icon_class.png" mode="aspectFit" />
+            <text style="font-size: 11px;margin-top: 5px;color: lightgrey;">分类</text>
+          </view>
+          <view class="spaceLine"></view>
+          <view class="scan" bindtap="onStoreSelected">
+            <image class="widgets-img" src="../images/OrderListPOPShopImg@2x.png" mode="aspectFit" />
+            <text style="font-size: 11px;margin-top: 5px;color: lightgrey;">店铺</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="specialView">
+      <view class="topSlash"></view>
+      <view class="textArea">
+        <text class="specialTitle">{{template[1].templateDetails[0].title}}</text>
+        <text class="specialSubTitle">{{template[1].templateDetails[0].subTitle}}</text>
+      </view>
+      <view class="bottomSlash"></view>
+    </view>
+    <view class="detailView" style="width: 100%;height:{{deviceWidth*(450/750)}}px;background-image:{{detailStyle.backgroundImage}};background-repeat: no-repeat;background-size: contain;">
+      <view class="specialBorder">
+        <view class="viewDetail">
+          <text class="viewDetailText">查看详情</text>
+        </view>
+      </view>
+    </view>
+    <view class="productInfoView">
+      <block wx:for-items="{{template[3].productTemplateDetails}}">
+        <view class="productView" data-key="{{item}}" bindtap="onProductDetail">
+          <image src="{{item.photoURL}}" class="productImage" mode="aspectFit"></image>
+          <view class="productNameView">
+            <text class="productText">{{item.name}}</text>
+            <text class="priceText">￥ {{item.price}}</text>
+          </view>
+        </view>
+      </block>
+    </view>
+    <view class="specialView">
+      <view class="topSlash"></view>
+      <view class="textArea">
+        <text class="specialTitle">{{template[1].templateDetails[0].title}}</text>
+        <text class="specialSubTitle">{{template[1].templateDetails[0].subTitle}}</text>
+      </view>
+      <view class="bottomSlash"></view>
+    </view>
+    <view class="productShowView">
+      <view class="topShowView">
+        <view class="showView1" style="background-image:{{showFirstStyle.image}};background-size: cover;background-repeat: no-repeat;">
+
+          <!--<text class="showText">Clubmaster Oversized</text>-->
+          <text class="priceText">{{}}</text>
+          <text class="showNameText">{{showFirstStyle.title}}</text>
+        </view>
+        <view class="showView2" style="background-image:{{showSecondStyle.backgroundImage}};background-size: contain;background-repeat: no-repeat;background-position: center;">
+          <view class="showSecondBorder">
+          </view>
+        </view>
+      </view>
+      <view class="bottomView">
+        <view class="showView3" style="background-image:{{showThirdStyle.backgroundImage}};background-size: contain;background-repeat: no-repeat;background-position: center;">
+        </view>
+        <view class="showView4" style="background-image:{{showFourStyle.backgroundImage}};background-size: contain;background-repeat: no-repeat;background-position: center;">
+          <view class="showView4Border"></view>
+        </view>
+      </view>
+    </view>
+    <view class="recommendView">
+      <view class="topRecommendView">
+        <image src="{{recommendProducts[0].photoURL}}" class="productImage" mode="aspectFit" bindtap="onProductDetail" data-key="{{recommendProducts[0]}}"></image>
+        <view class="productNameView">
+          <text class="productText">{{recommendProducts[0].name}}</text>
+          <text class="priceText">￥ {{recommendProducts[0].price}}</text>
+        </view>
+      </view>
+      <view class="bottomRecommendView">
+        <view class="bottomRecommendProductView">
+          <image src="{{recommendProducts[1].photoURL}}" class="productImage" mode="aspectFit" bindtap="onProductDetail" data-key="{{recommendProducts[0]}}"></image>
+          <view class="productNameView">
+            <text class="productText">{{recommendProducts[1].name}}</text>
+            <text class="priceText">￥ {{recommendProducts[1].price}}</text>
+          </view>
+        </view>
+        <view class="bottomRecommendProductView">
+          <image src="{{recommendProducts[2].photoURL}}" class="productImage" mode="aspectFit" bindtap="onProductDetail" data-key="{{recommendProducts[0]}}"></image>
+          <view class="productNameView">
+            <text class="productText">{{recommendProducts[2].name}}</text>
+            <text class="priceText">￥ {{recommendProducts[2].price}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

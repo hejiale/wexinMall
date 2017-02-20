@@ -1,0 +1,132 @@
+
+<!--pages/bookOrder/bookOrder.wxml-->
+<view class="page">
+  <view class="scrollView">
+    <view class="personInfoView">
+      <text class="TopTitle">个人信息</text>
+      <view class="line"></view>
+      <view class="headImageView">
+        <image src="{{customerPhoto}}" mode="aspectFit" class="headImage" background-size="cover"></image>
+        <text class="valueText">{{customerName}}</text>
+      </view>
+      <view class="line"></view>
+      <view class="TitleView">
+        <text class="title">性别</text>
+        <text class="valueText">{{customerGenger}}</text>
+      </view>
+      <view class="line"></view>
+      <view class="TitleView">
+        <text class="title">手机</text>
+        <text class="valueText">{{bindPhone}}</text>
+      </view>
+    </view>
+    <view class="opmetoryTitleView">
+      <text class="TopTitle">验光单</text>
+      <view class="line"></view>
+    </view>
+    <view class="hasOpmetory" bindtap="onSelectOpmetory">
+      <image src="../images/radioUncheck.png" class="iconImage" wx:if="{{isBookOpmetory}}"></image>
+      <image src="../images/radio.png" class="iconImage" wx:if="{{!isBookOpmetory}}"></image>
+      <text class="opmetoryTitleText">已有验光单</text>
+    </view>
+    <view class="opmetroyLine"></view>
+    <view class="selectOpmetoryInfo {{isShowOpmetory}}">
+      <view class="opmetoryInfoView">
+        <view class="rightView">
+          <view class="IconView">
+            <image src="../images/R.png" class="iconImage" mode="aspectFit"></image>
+          </view>
+          <view class="rightOpmetroy">
+            <view class="opmetoryInfo">
+              <text class="opmetoryText">球镜/SPH</text>
+              <text class="opmetoryValue">{{defaultOpmetory.sphRight}}</text>
+            </view>
+            <view class="opmetoryInfo">
+              <text class="opmetoryText">柱镜/CYL</text>
+              <text class="opmetoryValue">{{defaultOpmetory.cylRight}}</text>
+            </view>
+            <view class="opmetoryInfo">
+              <text class="opmetoryText">轴位/AXLS</text>
+              <text class="opmetoryValue">{{defaultOpmetory.axisRight}}</text>
+            </view>
+            <view class="opmetoryInfo">
+              <text class="opmetoryText">下加光/ADD</text>
+              <text class="opmetoryValue">{{defaultOpmetory.addRight}}</text>
+            </view>
+            <view class="opmetoryInfo">
+              <text class="opmetoryText">矫正视力/VA</text>
+              <text class="opmetoryValue">{{defaultOpmetory.correctedVisionRight}}</text>
+            </view>
+            <view class="opmetorySpace"></view>
+          </view>
+        </view>
+        <view class="leftView">
+          <view class="IconView">
+            <image src="../images/L.png" class="iconImage" mode="aspectFit"></image>
+          </view>
+          <view class="leftOpmetroy">
+            <view class="opmetoryInfo">
+              <text class="opmetoryText">球镜/SPH</text>
+              <text class="opmetoryValue">{{defaultOpmetory.sphLeft}}</text>
+            </view>
+            <view class="opmetoryInfo">
+              <text class="opmetoryText">柱镜/CYL</text>
+              <text class="opmetoryValue">{{defaultOpmetory.cylLeft}}</text>
+            </view>
+            <view class="opmetoryInfo">
+              <text class="opmetoryText">轴位/AXLS</text>
+              <text class="opmetoryValue">{{defaultOpmetory.axisLeft}}</text>
+            </view>
+            <view class="opmetoryInfo">
+              <text class="opmetoryText">下加光/ADD</text>
+              <text class="opmetoryValue">{{defaultOpmetory.addLeft}}</text>
+            </view>
+            <view class="opmetoryInfo">
+              <text class="opmetoryText">矫正视力/VA</text>
+              <text class="opmetoryValue">{{defaultOpmetory.correctedVisionLeft}}</text>
+            </view>
+            <view class="opmetorySpace"></view>
+          </view>
+        </view>
+        <view class="pdView">
+          <view class="opmetoryInfo">
+            <text class="opmetoryText">双眼瞳距/PD</text>
+            <text class="opmetoryValue">{{defaultOpmetory.distance}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="bookOpmetory" bindtap="onBookOpmetory">
+      <image src="../images/radioUncheck.png" class="iconImage" wx:if="{{!isBookOpmetory}}"></image>
+      <image src="../images/radio.png" class="iconImage" wx:if="{{isBookOpmetory}}"></image>
+      <text class="opmetoryTitleText">预约验光单</text>
+    </view>
+    <view class="storeAddressView">
+      <text class="TopTitle">店铺地址</text>
+      <view class="line"></view>
+      <view class="addressView">
+        <text class="addressText">{{storeAddress}} {{storeName}}</text>
+        <text class="addressText">{{storePhone}}</text>
+      </view>
+    </view>
+    <view class="productTitleView">
+      <text class="TopTitle">商品列表</text>
+      <view class="line"></view>
+    </view>
+    <block wx:for-items="{{productList}}">
+      <view class="productView">
+        <image src="{{item.thumbURL}}" mode="aspectFit" class="productImage"></image>
+        <view class="productInfo">
+          <view class="productName">
+            <text class="productNameText">{{item.name}}</text>
+          </view>
+          <view class="priceView">
+            <text class="price">￥{{item.price}}</text>
+            <text class="numText">x{{item.count}}</text>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class="footView {{showFoot}}" bindtap="onBookOrderClicked">立即预约</view>
+</view>

@@ -1,0 +1,431 @@
+/* pages/home/home.wxss */
+
+/* pages/home/home.wxss */
+
+page {
+  background-color: #fbf9fe;
+}
+
+.alertView {
+  display: flex;
+  flex-direction: column;
+  margin-top: 200px;
+  width: 100%;
+}
+
+.textView {
+  display: flex;
+  align-content: center;
+  height: 50px;
+  width: 100%;
+}
+
+.clickView {
+  display: flex;
+  align-items: center;
+  bottom: 10px;
+  width: 100%;
+  height: 50px;
+}
+
+.loginButton {
+  width: 200px;
+  height: 30px;
+  background-color: #63a0d4;
+  color: white;
+  font-size: 12px;
+}
+
+.loginText {
+  left: 0px;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  font-size: 13px;
+  color: gray;
+  text-align: center;
+}
+
+.contentView {
+  height: 100%;
+}
+
+.topView {
+  width: 100%;
+  height: 250px;
+  background-color: white;
+}
+
+.swiper-box {
+  width: 100%;
+  height: 200px;
+}
+
+.bannerImage {
+  width: 100%;
+  height: 100%;
+}
+
+.menuView {
+  display: flex;
+  justify-content: space-between;
+  margin: 0px;
+  width: 100%;
+  height: 50px;
+}
+
+.storeNameView {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0px;
+  width: 120px;
+  height: 100%;
+}
+
+.glassesView {
+  position: absolute;
+  top: 184px;
+  left: 20px;
+  width: 80px;
+  height: 30px;
+  background-color: white;
+}
+
+.glassBgView {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 2px;
+  margin-right: 2px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  width: 76px;
+  height: 26px;
+  background-color: black;
+}
+
+.glassText {
+  font-size: 12px;
+  line-height: 26px;
+  color: white;
+  letter-spacing: 1px;
+  font-family: "Helvetica Neue",
+                 Helvetica,
+                 Arial,
+                 "Hiragino Sans GB",
+                 "PingFang SC",
+                 "Microsoft YaHei",
+                 "WenQuanYi Micro Hei",
+                 sans-serif;
+  font-weight: 100;
+}
+
+.menuItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0px;
+  width: 120px;
+  height: 100%;
+}
+
+.scan {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+  margin-left: 0px;
+  margin-top: 0px;
+}
+
+.widgets-img {
+  width: 16px;
+  height: 16px;
+}
+.spaceLine{
+  margin-left: 0px;
+  width: 1px;
+  height: 30px;
+  background-color: lightgrey;
+}
+.storeText {
+  font-size: 13px;
+  color: grey;
+  text-align: center;
+  letter-spacing: 1rpx;
+  font-family: "Helvetica Neue",
+                 Helvetica,
+                 Arial,
+                 "Hiragino Sans GB",
+                 "PingFang SC",
+                 "Microsoft YaHei",
+                 "WenQuanYi Micro Hei",
+                 sans-serif;
+  font-weight: 100;
+}
+
+.specialView {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+  width: 100%;
+  height: 100px;
+  background-color: white;
+}
+
+.topSlash {
+  width: 24px;
+  transform: rotate(-55deg);
+  height: 1px;
+  background-color: #000;
+  margin-left: 70px;
+}
+
+.bottomSlash {
+  width: 24px;
+  transform: rotate(-55deg);
+  height: 1px;
+  background-color: #000;
+  margin-left: -32px;
+}
+
+.textArea {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+.specialTitle {
+  font-size: 14px;
+  color: gray;
+  font-family: "Helvetica Neue",
+                 Helvetica,
+                 Arial,
+                 "Hiragino Sans GB",
+                 "PingFang SC",
+                 "Microsoft YaHei",
+                 "WenQuanYi Micro Hei",
+                 sans-serif;
+  font-weight: 100;
+}
+
+.specialSubTitle {
+  margin-top: 5px;
+  font-size: 11px;
+}
+.detailView {
+  margin-top: 5px;
+}
+.specialBorder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 10px;
+  left: 10px;
+  width: calc(100% - 22px);
+  height: calc(100% - 22px);
+  border: 1rpx solid white;
+}
+.viewDetail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 70%;
+  width: 25%;
+  height: 40px;
+  border: 1rpx solid white;
+}
+
+.viewDetailText {
+  width: 100%;
+  color: white;
+  font-size: 12px;
+  text-align: center;
+}
+
+.productInfoView {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+  width: 100%;
+  height: 150px;
+  background-color: white;
+}
+
+.productView {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 100%;
+}
+
+.productNameView {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0px;
+  width: 100%;
+  height: 40%;
+}
+
+.productText {
+  margin: 0px;
+  font-size: 12px;
+  color: gray;
+  line-height: 25px;
+}
+
+.priceText {
+  margin: 0px;
+  font-size: 14px;
+  font-family: "Helvetica Neue",
+                 Helvetica,
+                 Arial,
+                 "Hiragino Sans GB",
+                 "PingFang SC",
+                 "Microsoft YaHei",
+                 "WenQuanYi Micro Hei",
+                 sans-serif;
+  font-weight: 900;
+  line-height: 25px;
+}
+
+.productImage {
+  margin-left: 10px;
+  width: 70%;
+  height: 60%;
+}
+
+.productShowView {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+  width: 100%;
+  height: 430px;
+  background-color: white;
+}
+
+.topShowView {
+  display: flex;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 10px;
+  height: 200px;
+}
+
+.bottomView {
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  height: 200px;
+}
+
+.showView1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+}
+
+.showView2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+}
+
+.showSecondBorder {
+  position: relative;
+  top: 10px;
+  left: 0px;
+  width: calc(100% - 46px);
+  height: calc(100% - 20px);
+  border: 1rpx solid lightgray;
+}
+
+.showView3 {
+  display: flex;
+  width: 50%;
+  height: 100%;
+}
+
+.showView4 {
+  display: flex;
+  width: 50%;
+  height: 100%;
+}
+
+.showView4Border {
+  position: relative;
+  left: 15px;
+  right: 15px;
+  width: calc(100% - 38px);
+  height: calc(100% - 12px);
+  border: 5px solid aliceblue;
+}
+
+.showText {
+  margin-top: 20px;
+  line-height: 30px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.showNameText {
+  margin-top: 70%;
+  line-height: 30px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.recommendView {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+  height: 350px;
+  background-color: white;
+}
+
+.topRecommendView {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 200px;
+}
+
+.bottomRecommendView {
+  display: flex;
+  height: 150px;
+}
+
+.bottomRecommendProductView {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}

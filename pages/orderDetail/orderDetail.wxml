@@ -1,0 +1,58 @@
+
+<!--pages/orderDetail/orderDetail.wxml-->
+<view class="page">
+  <view class="headView">
+    <image src="../images/personalOrderBg.png" class="headImage"></image>
+    <view class="headTextView">
+      <text class="headText">{{orderDetail.orderStatus}}</text>
+    </view>
+  </view>
+  <view class="contactView">
+    <view class="contactLeftView">
+      <image src="../images/order_address.png" class="contactImage" mode="aspectFit"></image>
+    </view>
+    <view class="contactRightView">
+      <view class="contacter">
+        <text class="nameText">收货人:{{orderDetail.contactorName}}</text>
+        <text class="phoneText">{{orderDetail.contactorPhone}}</text>
+      </view>
+      <view class="contacterAddress">
+        <text class="addressText">收货地址: {{orderDetail.contactorAddress}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="memoView">
+    <text class="memoText">订单备注：{{orderDetail.remark}}</text>
+  </view>
+  <block wx:for-items="{{orderDetail.details}}">
+    <view class="productListView">
+      <view class="productLeftView">
+        <image src="{{item.thumbnailURL}}" mode="aspectFit" class="productImage"></image>
+        <view class="productInfo">
+          <view class="productName">
+            <text class="productNameText">{{item.prodInfo}}</text>
+          </view>
+          <view class="priceView">
+            <text class="price">￥{{item.goodPrice}}</text>
+            <text class="numText">x{{item.goodCount}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="productRightView">
+        <image src="../images/icon_arrow.png" class="productArrowImage"></image>
+      </view>
+    </view>
+  </block>
+  <view class="totalPriceView">
+    <view class="line"></view>
+    <view class="totalView">
+      <view></view>
+      <label class="totalPrice">合计: ￥{{orderDetail.price}}</label>
+    </view>
+  </view>
+  <view class="detailView">
+    <text class="detailText">订单编号：{{orderDetail.orderNumber}}</text>
+    <text class="detailText">下单时间：{{orderDetail.dateStr}}</text>
+    <text class="detailText">操作人：{{orderDetail.operator}}</text>
+  </view>
+</view>

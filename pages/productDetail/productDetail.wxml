@@ -1,0 +1,36 @@
+<import src="../../wxParse/wxParse.wxml" />
+<view class="page">
+  <view class="contentView">
+    <swiper class="swiper_box" indicator-dots="{{indicator}}">
+      <block wx:for-items="{{images}}">
+        <swiper-item>
+          <image src="{{item}}" class="bannerImage" mode="aspectFit" />
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="productInfo">
+      <text class="productName">{{DetailObject.name}}</text>
+      <text class="priceText">￥ {{DetailObject.suggestPrice}}</text>
+    </view>
+    <view class="specificationView">
+      <image src="{{DetailObject.photos['缩略图'].photoLinkNormal}}" mode="aspectFit" class="specificationImage"></image>
+      <view class="specifications">
+        <view class="FrameView">
+          <block wx:for-items="{{specifications}}">
+            <view class="specificationItem">
+              <text class="keyText">{{item.key}}</text>
+              <text class="valueText">{{item.name}}</text>
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+    <view class="webView">
+      <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+    </view>
+  </view>
+  <view class="footView">
+    <text class="bookText" bindtap="onBook">立即预约</text>
+    <text class="addCartText" bindtap="onCart">加入购物车</text>
+  </view>
+</view>

@@ -1,0 +1,150 @@
+/* pages/productDetail/productDetail.wxss */
+/* pages/productDetail/productDetail.wxss */
+
+page {
+  background-color: #fbf9fe;
+}
+
+.contentView {
+  padding-bottom: 50px;
+}
+
+.swiper_box {
+  width: 100%;
+  background-color: white;
+}
+
+.bannerView {
+  width: 100%;
+  height: 280rpx;
+  background-color: white;
+}
+
+.bannerImage {
+  width: 100%;
+  height: 100%;
+}
+
+.productInfo {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0px;
+  width: 100%;
+  height: 60px;
+  background-color: white;
+}
+
+.productName {
+  margin-left: 20px;
+  font-size: 13px;
+  color: lightgray;
+}
+
+.priceText {
+  margin-top: 10px;
+  margin-left: 20px;
+  font-size: 13px;
+  font-family: "Helvetica Neue",
+                 Helvetica,
+                 Arial,
+                 "Hiragino Sans GB",
+                 "PingFang SC",
+                 "Microsoft YaHei",
+                 "WenQuanYi Micro Hei",
+                 sans-serif;
+  font-weight: 900;
+}
+
+.specificationView {
+  display: flex;
+  flex-direction: column;
+  height: 280px;
+  background-color: white;
+  margin-top: 5px;
+}
+
+.specificationImage {
+  width: 100%;
+  height: 140px;
+}
+
+.specifications {
+  margin: 0px;
+  width: 100%;
+  height: 140px;
+}
+
+.FrameView {
+  margin: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+.specificationItem {
+  display: inline-block;
+  width: 50%;
+  height: 25px;
+}
+
+.keyText {
+  margin-left: 20px;
+  font-size: 13px;
+}
+
+.valueText {
+  margin-left: 20px;
+  font-size: 11px;
+  color: lightgrey;
+}
+
+.webView {
+  margin-top: 5px;
+  width: 100%;
+  background-color: white;
+}
+
+.footView {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  height: 50px;
+  background-color: #fbf9fe;
+}
+.cartView{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+  height: 50px;
+}
+.cartImage{
+  width: 20px;
+  height: 20px;
+}
+.cartText{
+  margin-top: 5px;
+  font-size: 10px;
+  color: gray;
+}
+.bookText {
+  font-size: 14px;
+  color: white;
+  width: 50%;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background-color: #63a0d4;
+}
+
+.addCartText {
+  font-size: 14px;
+  color: white;
+  width: 50%;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background-color: #ffd700;
+}

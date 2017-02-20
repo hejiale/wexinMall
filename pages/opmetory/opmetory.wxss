@@ -1,0 +1,148 @@
+/* pages/opmetory/opmetory.wxss */
+/* pages/person/opmetory/opmetory.wxss */
+
+page {
+  background-color: #fbf9fe;
+}
+
+.scrollView {
+  width: 100%;
+}
+
+.opmetoryView {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  width: 100%;
+  height: 330px;
+  background-color: white;
+}
+.selectView {
+  display: flex;
+  align-items: center;
+  width: 30px;
+  height: 100%;
+}
+.opmetoryInfoView {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: calc(100%-30px);
+  height: 100%;
+}
+.selectImage {
+  margin-top: 155px;
+  margin-left: 5px;
+  width: 20px;
+  height: 20px;
+}
+
+.rightView {
+  display: flex;
+  flex-direction: row;
+  margin-top: 5px;
+  width: 100%;
+  height: 140px;
+}
+
+.rightOpmetroy {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-left: 5px;
+  width: calc(100% - 50px);
+  height: 100%;
+}
+
+.IconView {
+  margin-top: 0px;
+  margin-left: 5px;
+  width: 20px;
+  height: 20px;
+}
+
+.iconImage {
+  width: 20px;
+  height: 20px;
+}
+
+.opmetoryInfo {
+  display: flex;
+  justify-content: space-between;
+  width: calc((100% - 20px)/2);
+  height: 30px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+}
+
+.opmetorySpace {
+  width: calc((100% - 20px)/2);
+  height: 25px;
+}
+
+.opmetoryText {
+  margin-left: 5px;
+  height: 100%;
+  width: 80px;
+  line-height: 30px;
+  color: gray;
+  font-size: 12px;
+}
+
+.opmetoryValue {
+  margin-right: 5px;
+  font-size: 12px;
+  line-height: 30px;
+  color: gray;
+}
+
+.leftView {
+  display: flex;
+  flex-direction: row;
+  margin-top: 0px;
+  width: 100%;
+  height: 140px;
+}
+
+.leftOpmetroy {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-left: 5px;
+  width: calc(100% - 50px);
+  height: 100%;
+}
+
+.pdView {
+  margin-top: 0px;
+  margin-left: 35px;
+  width: calc(100% - 35px);
+  height: 35px;
+}
+
+.footView {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  height: 40px;
+  background-color: #63a0d4;
+}
+
+.addText {
+  color: white;
+  font-size: 12px;
+  width: 100%;
+  height: 100%;
+  line-height: 40px;
+  text-align: center;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}

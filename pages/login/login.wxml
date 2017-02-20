@@ -1,0 +1,16 @@
+
+<!--pages/login/login.wxml-->
+<view class="page">
+  <view class="headView">
+    <image src="../images/icon.png" class="headImage"></image>
+    <text class="headText">上海都睿网络科技有限公司</text>
+  </view>
+  <view class="alertView">
+    <text class="alertTopText">该程序将获取以下授权:</text>
+    <text class="alertFootText">获取您的公开信息（昵称、头像等）</text>
+  </view>
+  <view class="footView">
+    <button class="cancelButton" bindtap="onCancle">拒绝</button>
+    <button class="sureButton" bindtap="onSure">允许</button>
+  </view>
+</view>

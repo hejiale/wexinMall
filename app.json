@@ -1,0 +1,53 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/logs/logs",
+    "pages/person/person",
+    "pages/order/order",
+    "pages/address/address",
+    "pages/opmetory/opmetory",
+    "pages/editAddress/editAddress",
+    "pages/productDetail/productDetail",
+    "pages/orderDetail/orderDetail",
+    "pages/bookOrder/bookOrder",
+    "pages/login/login",
+    "pages/bindPhone/bindPhone",
+    "pages/cart/cart",
+    "pages/store/store",
+    "pages/productList/productList",
+    "pages/myBook/myBook"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": "true"
+  },
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#63a0d4",
+    "backgroundColor": "#fff",
+    "borderStyle": "white",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "image/icon_home_normal@2x.png",
+        "selectedIconPath": "image/icon_home_selected@2x.png"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "text": "购物车",
+        "iconPath": "image/icon_cart_normal@2x.png",
+        "selectedIconPath": "image/icon_cart_selected@2x.png"
+      },
+      {
+        "pagePath": "pages/person/person",
+        "text": "个人中心",
+        "iconPath": "image/icon_person_normal@2x.png",
+        "selectedIconPath": "image/icon_person_selected@2x.png"
+      }
+    ]
+  }
+}

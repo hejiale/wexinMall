@@ -1,0 +1,29 @@
+<view class="page">
+  <scroll-view class="scroll-container" scroll-y="true" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" style="height:calc(100% - 1px)">
+    <block wx:for-items="{{addressList}}">
+      <view class="CellItem" bindtap="onTapAddressDetail" data-key="{{item}}">
+        <view class="CellContentView">
+          <view class="addressLeftView">
+            <view class="topView">
+              <view class="nameView">
+                <text class="userNameText">联系人:{{item.contactorName}}</text>
+              </view>
+              <view class="phoneView">
+                <text class="phoneText">{{item.contactorPhone}}</text>
+              </view>
+            </view>
+            <view class="addressView">
+              <label class="addressText">地址:{{item.detailAdress}}</label>
+            </view>
+          </view>
+          <view class="addressRightView">
+            <image src="../images/icon_arrow.png" class="addressArrowImage"></image>
+          </view>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+</view>
+<view class="footView" bindtap="onInsertNewAddress">
+  <text class="footText">添加新地址</text>
+</view>

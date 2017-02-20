@@ -1,0 +1,21 @@
+
+<!--pages/bindPhone/bindPhone.wxml-->
+<view class="page">
+  <view class="inputView">
+    <view class="userNameView">
+      <view class="inputTextView">
+        <input placeholder="请输入您的手机号码" placeholder-style="font-size: 12px;" class="inputText" bindinput="onPhoneTextFieldChange" maxlength='11'/>
+      </view>
+      <button class="codeButton" style="{{!isSendCode ? 'background-color: #63a0d4':'background-color: lightgray'}}" bindtap="onSendCode">{{clock}}</button>
+    </view>
+    <view class="inputLine"></view>
+    <view class="passwordView">
+      <view class="inputTextView">
+        <input placeholder="请输入收到的验证码" placeholder-style="font-size: 12px;" class="inputText" bindinput="onCodeTextFieldChange" maxlength="6"/>
+      </view>
+    </view>
+  </view>
+  <view class="bindView">
+    <button class="bindButton" bindtap="onBindPhone" style="{{isCanBind ? 'background-color: #63a0d4' : 'background-color: lightgray'}}">绑定</button>
+  </view>
+</view>

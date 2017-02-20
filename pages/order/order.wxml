@@ -1,0 +1,25 @@
+<view class="page">
+  <scroll-view scroll-y="true" class="scrollView">
+    <block wx:for-items="{{orderList}}">
+      <view class="contentView" bindtap="onOrderDetail" data-key="{{item}}">
+        <view class="leftView">
+          <view class="codeView">
+            <text class="title">订单编号</text>
+            <text class="value" style="color: lightgrey;">{{item.orderNumber}}</text>
+          </view>
+          <view class="priceView">
+            <text class="title">订单价格</text>
+            <text class="value">￥{{item.price}}</text>
+          </view>
+          <view class="dateView">
+            <text class="title">下单时间</text>
+            <text class="value" style="color: lightgrey;">{{item.dateStr}}</text>
+          </view>
+        </view>
+        <view class="rightView">
+          <image src="../images/icon_arrow.png" class="arrowImage"></image>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+</view>

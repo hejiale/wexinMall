@@ -1,0 +1,22 @@
+<view class="page">
+  <view class="loginView {{showLogin}}">
+    <view class="textView">
+      <text class="loginText">您尚未登录,请先登录后查看个人信息</text>
+    </view>
+    <view class="clickView">
+      <button class="loginButton" bindtap="onLogin">登录</button>
+    </view>
+  </view>
+  <view class="storeListView {{showStore}}">
+    <block wx:for-items="{{storeList}}">
+      <view class="contentView" bindtap="onSelectStore" data-key="{{item}}">
+        <view class="storeLeftView">
+          <text class="contentText">{{item.storeName}}</text>
+        </view>
+        <view class="storeRightView">
+          <image src="../images/icon_arrow.png" class="storeArrowImage"></image>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

@@ -1,0 +1,71 @@
+/* pages/order/order.wxss */
+/* pages/person/order/order.wxss */
+
+page {
+  background-color: #fbf9fe;
+}
+
+.scrollView {
+  width: 100%;
+}
+
+.contentView {
+  display: flex;
+  flex-direction: row;
+  margin-top: 5px;
+  width: 100%;
+  height: 120px;
+  background-color: white;
+}
+.leftView{
+  width: 95%;
+  height: 100%;
+}
+.rightView{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 5%;
+  height: 100%;
+}
+.codeView {
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+}
+
+.priceView {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+}
+
+.dateView {
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+}
+.title {
+    margin-left: 20px;
+    font-size: 13px;
+    line-height: 40px;
+    width: 100px;
+    color: lightgrey;
+}
+.value {
+    font-size: 13px;
+    line-height: 40px;
+    width: 40%;
+    text-align: right;
+}
+.line {
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 1px;
+    background-color: lightgrey;
+}
+.arrowImage{
+  width: 8px;
+  height: 14px;
+}

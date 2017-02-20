@@ -1,0 +1,247 @@
+/* pages/cart/cart.wxss */
+/* pages/cart/cart.wxss */
+
+page {
+  background-color: #fbf9fe;
+}
+
+.loginView {
+  display: flex;
+  flex-direction: column;
+  margin-top: 200px;
+  width: 100%;
+}
+
+.textView {
+  display: flex;
+  align-content: center;
+  height: 50px;
+  width: 100%;
+}
+
+.clickView {
+  display: flex;
+  align-items: center;
+  bottom: 10px;
+  width: 100%;
+  height: 50px;
+}
+
+.loginButton {
+  width: 200px;
+  height: 30px;
+  background-color: #63a0d4;
+  color: white;
+  font-size: 12px;
+}
+
+.loginText {
+  left: 0px;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  font-size: 13px;
+  color: gray;
+  text-align: center;
+}
+
+.contentView {
+  height: 100%;
+}
+
+.cartView {
+  display: flex;
+  margin-left: 0px;
+  margin-top: 5px;
+  width: 100%;
+  height: 100px;
+  align-items: center;
+  background-color: white;
+}
+
+.selectedView {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 100%;
+}
+
+.iconSelectedImage {
+  width: 20px;
+  height: 20px;
+}
+
+.productImage {
+  width: 80px;
+  height: 80px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}
+
+.cartNumView {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(100% - 140px);
+  height: 100%;
+}
+
+.reduceView {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(100%/3);
+  height: 100%;
+}
+
+.cartNumText {
+  width: calc(100%/3);
+  line-height: 100px;
+  font-size: 12px;
+  color: gray;
+  text-align: center;
+}
+
+.increaseView {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(100%/3);
+  height: 100%;
+}
+
+.iconCartImage {
+  width: 20px;
+  height: 20px;
+}
+
+.productInfo {
+  margin-left: 5px;
+  margin-top: 5px;
+  width: calc(100% - 140px);
+  height: calc(100%-10px);
+}
+
+.productName {
+  height: 50px;
+}
+
+.productNameText {
+  font-size: 12px;
+  color: gray;
+}
+
+.priceView {
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+}
+
+.price {
+  font-size: 12px;
+  color: gray;
+  line-height: 50px;
+}
+
+.numText {
+  font-size: 12px;
+  color: lightgray;
+  line-height: 50px;
+  padding-right: 20px;
+  text-align: center;
+}
+
+.footView {
+  display: flex;
+  position: fixed;
+  align-items: center;
+  align-content: center;
+  bottom: 0px;
+  width: 100%;
+  height: 50px;
+  border: 1px solid lightgray;
+  background-color: white;
+}
+
+.iconImage {
+  margin-left: 20px;
+  width: 20px;
+  height: 20px;
+}
+
+.editText {
+  width: 25%;
+  font-size: 12px;
+  color: gray;
+  line-height: 50px;
+  text-align: center;
+}
+
+.cancleText {
+  margin-left: 25%;
+  width: 25%;
+  font-size: 12px;
+  color: white;
+  line-height: 50px;
+  text-align: center;
+  background-color: gold;
+}
+
+.deleteText {
+  width: 25%;
+  font-size: 12px;
+  color: white;
+  line-height: 50px;
+  text-align: center;
+  background-color: #63a0d4;
+}
+
+.chooseAllView {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  width: 25%;
+  height: 100%;
+}
+
+.chooseAllText {
+  width: 40px;
+  font-size: 12px;
+  color: gray;
+  line-height: 50px;
+  text-align: center;
+}
+
+.bookView {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+  margin-left: 25%;
+}
+
+.priceText {
+  width: 50%;
+  font-size: 13px;
+  color: gray;
+  line-height: 50px;
+  text-align: center;
+}
+
+.bookText {
+  width: 50%;
+  font-size: 14px;
+  color: white;
+  line-height: 50px;
+  text-align: center;
+  background-color: #63a0d4;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}

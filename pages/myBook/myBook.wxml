@@ -1,0 +1,26 @@
+<view class="page">
+  <scroll-view scroll-y="true" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" style="height:calc(100% - 1px)" class="scrollView">
+    <block wx:for-items="{{bookList}}">
+      <view class="cellItem">
+        <view class="contentView">
+          <view class="bookLeftView">
+            <view class="topView">
+              <text class="storeName">{{item.storeName}}</text>
+              <text class="phone">{{item.customerPhone}}</text>
+            </view>
+            <text class="address" data-key="{{item}}" bindtap="onTapBookInfoDetail">{{item.storeAddress}}</text>
+            <view class="bottomView">
+              <text class="date">{{item.orderDateStr}}</text>
+              <view class="cancelView">
+                <text class="cancelText" bindtap="onCancel" data-key="{{item}}">取消</text>
+              </view>
+            </view>
+          </view>
+          <view class="bookRightView">
+            <image src="../images/icon_arrow.png" class="bookArrowImage"></image>
+          </view>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+</view>

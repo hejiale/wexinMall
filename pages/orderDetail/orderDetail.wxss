@@ -1,0 +1,215 @@
+/* pages/orderDetail/orderDetail.wxss */
+
+/* pages/orderDetail/orderDetail.wxss */
+
+page {
+  background-color: #fbf9fe;
+}
+
+.headView {
+  position: relative;
+  width: 100%;
+  height: 75px;
+}
+
+.headTextView {
+  position: absolute;
+  top: 0px;
+  left: 20px;
+  width: 100px;
+  height: 100%;
+}
+
+.headImage {
+  width: 100%;
+  height: 100%;
+}
+
+.headText {
+  line-height: 75px;
+  font-size: 12px;
+  color: white;
+}
+
+.contactView {
+  display: flex;
+  flex-direction: row;
+  margin-top: 5px;
+  width: 100%;
+  height: 80px;
+  background-color: white;
+  /*background-image: url(../images/address.png);*/
+}
+.contactLeftView {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+  height: 100%;
+}
+.contactImage{
+  width: 20px;
+  height: 20px;
+}
+.contactRightView {
+  width: 90%;
+  height: 100%;
+}
+
+.contacter {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+  height: 30px;
+}
+
+.nameText {
+  line-height: 30px;
+  font-size: 12px;
+}
+
+.phoneText {
+  font-size: 12px;
+  line-height: 30px;
+  padding-right: 20px;
+  text-align: center;
+}
+
+.contacterAddress {
+  padding-top: 5px;
+  padding-right: 20px;
+  height: 30px;
+}
+
+.addressText {
+  font-size: 12px;
+}
+
+.memoView {
+  margin-top: 5px;
+  width: 100%;
+  height: 50px;
+  background-color: white;
+}
+
+.memoText {
+  padding-left: 40px;
+  padding-right: 20px;
+  font-size: 12px;
+  line-height: 50px;
+}
+
+.productListView {
+  display: flex;
+  flex-direction: row;
+  margin-top: 5px;
+  width: 100%;
+  height: 100px;
+  background-color: white;
+  align-items: center;
+}
+.productLeftView{
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  height: 100%;
+  align-items: center;
+}
+.productRightView{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+  height: 100%;
+}
+.productImage {
+  margin-left: 20px;
+  width: 80px;
+  height: 80px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}
+.productArrowImage{
+  width: 8px;
+  height: 14px;
+}
+.productInfo {
+  margin-left: 5px;
+  margin-top: 5px;
+  width: calc(100% - 140px);
+  height: calc(100%-10px);
+}
+
+.productName {
+  height: 50px;
+}
+
+.productNameText {
+  font-size: 12px;
+  color: gray;
+}
+
+.priceView {
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+}
+
+.price {
+  font-size: 12px;
+  color: gray;
+  line-height: 50px;
+}
+
+.numText {
+  font-size: 12px;
+  color: lightgray;
+  line-height: 50px;
+  padding-right: 5px;
+  text-align: center;
+}
+
+.totalPriceView {
+  margin-top: 0px;
+  background-color: white;
+  width: 100%;
+  height: 40px;
+}
+
+.line {
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 0px;
+  height: 1px;
+  background-color: lightgray;
+}
+
+.totalView {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 35px;
+}
+
+.totalPrice {
+  font-size: 12px;
+  line-height: 35px;
+}
+
+.detailView {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+  width: 100%;
+  height: 90px;
+  background-color: white;
+}
+
+.detailText {
+  padding-left: 20px;
+  padding-top: 0px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 12px;
+}

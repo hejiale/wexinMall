@@ -1,0 +1,263 @@
+/* pages/editAddress/editAddress.wxss */
+/* pages/editAddress/editAddress.wxss */
+
+page {
+  background-color: #fbf9fe;
+}
+
+.contacterView {
+  display: flex;
+  width: 100%;
+  height: 60px;
+  background-color: white;
+}
+
+.contactPhoneView {
+  display: flex;
+  margin-top: 0px;
+  width: 100%;
+  height: 60px;
+  background-color: white;
+}
+
+.contactCityView {
+  display: flex;
+  margin-top: 0px;
+  width: 100%;
+  height: 60px;
+  background-color: white;
+}
+
+.contactTownView {
+  display: flex;
+  margin-top: 0px;
+  width: 100%;
+  height: 60px;
+  background-color: white;
+}
+
+.contactAddressView {
+  display: flex;
+  margin-top: 0px;
+  width: 100%;
+  height: 60px;
+  background-color: white;
+}
+
+.contacterText {
+  margin-left: 20px;
+  margin-top: 0px;
+  font-size: 12px;
+  width: 70px;
+  line-height: 60px;
+}
+
+.inputText {
+  background: #fbf9fe;
+  border-radius: 5px;
+  margin-top: 17px;
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 100%;
+  height: 26px;
+  padding-left: 5px;
+  font-size: 12px;
+  float: left;
+  position: relative;
+}
+
+.cityText {
+  background: #fbf9fe;
+  border-radius: 5px;
+  margin-top: 17px;
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 100%;
+  height: 26px;
+  line-height: 26px;
+  padding-left: 5px;
+  font-size: 12px;
+  float: left;
+  position: relative;
+}
+
+.inputAddressText {
+  background: #fbf9fe;
+  border-radius: 5px;
+  margin-top: 17px;
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 100%;
+  height: 26px;
+  padding-left: 5px;
+  font-size: 12px;
+  float: left;
+  position: relative;
+}
+
+.setDefaultView {
+  margin-top: 10px;
+  height: 30px;
+}
+
+.setDefaultText{
+  margin-left: 20px;
+  line-height: 30px;
+  color: #63a0d4;
+  font-size: 12px;
+}
+
+.footView {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+  height: 90px;
+}
+
+.sureText {
+  background-color: #63a0d4;
+  color: white;
+  font-size: 12px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+}
+
+.cancelText {
+  margin-top: 10px;
+  background-color: white;
+  font-size: 12px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border: 1rpx solid lightgray;
+}
+
+.line {
+  background-color: #fbf9fe;
+  margin-top: 0px;
+  margin-left: 10px;
+  margin-right: 10px;
+  height: 1px;
+}
+
+.city-picker-bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  z-index: 888;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+#city-picker-cover {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background-color: #333;
+  opacity: 0.7;
+}
+
+#city-picker {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #fff;
+}
+
+#city-title {
+  box-sizing: border-box;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.city-left-title-item {
+  font-family: Microsoft YaHei;
+  font-size: 13px;
+  color: lightgray;
+}
+
+.city-right-title-item {
+  font-family: Microsoft YaHei;
+  font-size: 13px;
+  color: #63a0d4;
+}
+
+.city-text-item {
+  font-family: Microsoft YaHei;
+  font-size: 11pt;
+  color: gray;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 20px;
+}
+
+.city-line {
+  margin-left: 5px;
+  margin-top: 0px;
+  margin-right: 5px;
+  height: 1px;
+  background-color: lightgray;
+}
+
+#picker-container {
+  width: 100%;
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.city-scroll {
+  width: 30%;
+  height: 222px;
+  text-align: center;
+}
+
+#cover {
+  width: 100%;
+  height: 222px;
+  position: absolute;
+}
+
+.cover-cover {
+  background-color: white;
+  opacity: 0.5;
+  width: 100%;
+  height: 110px;
+}
+
+.divider-big {
+  background-color: #666;
+  width: 100%;
+  height: 1px;
+}
+
+.cover-no {
+  width: 100%;
+  height: 40rpx;
+}
+
+.up-white {
+  width: 100%;
+  height: 106px;
+}
+
+.down-white {
+  width: 100%;
+  height: 97px;
+}

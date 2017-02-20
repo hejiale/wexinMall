@@ -1,0 +1,76 @@
+<view class="page">
+  <scroll-view scroll-y="true" class="scrollView">
+    <block wx:for-items="{{opmetoryList}}">
+      <view class="opmetoryView">
+        <view class="selectView {{isSelect}}" bindtap="onSelectOpmetory" data-key="{{item}}">
+          <image src="../images/radioUncheck.png" class="selectImage" mode="aspectFit" wx:if="{{selectOpmetory != item.id}}"></image>
+          <image src="../images/radio.png" class="selectImage" mode="aspectFit" wx:if="{{selectOpmetory == item.id}}"></image>
+        </view>
+        <view class="opmetoryInfoView">
+          <view class="rightView">
+            <view class="IconView">
+              <image src="../images/R.png" class="iconImage" mode="aspectFit"></image>
+            </view>
+            <view class="rightOpmetroy">
+              <view class="opmetoryInfo">
+                <text class="opmetoryText">球镜/SPH</text>
+                <text class="opmetoryValue">{{item.sphRight}}</text>
+              </view>
+              <view class="opmetoryInfo">
+                <text class="opmetoryText">柱镜/CYL</text>
+                <text class="opmetoryValue">{{item.cylRight}}</text>
+              </view>
+              <view class="opmetoryInfo">
+                <text class="opmetoryText">轴位/AXLS</text>
+                <text class="opmetoryValue">{{item.axisRight}}</text>
+              </view>
+              <view class="opmetoryInfo">
+                <text class="opmetoryText">下加光/ADD</text>
+                <text class="opmetoryValue">{{item.addRight}}</text>
+              </view>
+              <view class="opmetoryInfo">
+                <text class="opmetoryText">矫正视力/VA</text>
+                <text class="opmetoryValue">{{item.correctedVisionRight}}</text>
+              </view>
+              <view class="opmetorySpace"></view>
+            </view>
+          </view>
+          <view class="leftView">
+            <view class="IconView">
+              <image src="../images/L.png" class="iconImage" mode="aspectFit"></image>
+            </view>
+            <view class="leftOpmetroy">
+              <view class="opmetoryInfo">
+                <text class="opmetoryText">球镜/SPH</text>
+                <text class="opmetoryValue">{{item.sphLeft}}</text>
+              </view>
+              <view class="opmetoryInfo">
+                <text class="opmetoryText">柱镜/CYL</text>
+                <text class="opmetoryValue">{{item.cylLeft}}</text>
+              </view>
+              <view class="opmetoryInfo">
+                <text class="opmetoryText">轴位/AXLS</text>
+                <text class="opmetoryValue">{{item.axisLeft}}</text>
+              </view>
+              <view class="opmetoryInfo">
+                <text class="opmetoryText">下加光/ADD</text>
+                <text class="opmetoryValue">{{item.addLeft}}</text>
+              </view>
+              <view class="opmetoryInfo">
+                <text class="opmetoryText">矫正视力/VA</text>
+                <text class="opmetoryValue">{{item.correctedVisionLeft}}</text>
+              </view>
+              <view class="opmetorySpace"></view>
+            </view>
+          </view>
+          <view class="pdView">
+            <view class="opmetoryInfo">
+              <text class="opmetoryText">双眼瞳距/PD</text>
+              <text class="opmetoryValue">{{item.distance}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+</view>
