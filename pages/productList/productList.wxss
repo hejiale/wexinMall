@@ -61,7 +61,7 @@ page {
   flex-direction: row;
   top: 0px;
   width: 100%;
-  height: 50px;
+  height: 10%;
   align-items: center;
   background-color: white;
 }
@@ -86,31 +86,37 @@ page {
   text-align: center;
   color: grey;
 }
-
 .search-input {
   display: flex;
   flex-direction: row;
+  width: calc(100% - 60px);
   height: 40px;
-  width: 80%;
-  left: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
   border-radius: 5px;
   align-items: center;
   background-color: #fbf9fe;
-  font-size: 13px;
 }
-
 .search-icon {
   margin-left: 5px;
   width: 30rpx;
   height: 30rpx;
 }
-
 .search-text {
-  padding-left: 0px;
-  padding-right: 0px;
   height: 40px;
 }
-
+.clearView{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+.clearImage{
+  margin-top: 13px;
+  width: 14px;
+  height: 14px;
+}
 .widgets-img {
   width: 16px;
   height: 16px;
@@ -125,18 +131,20 @@ page {
   font-size: 12px;
   color: gray;
 }
-.productListView{
+
+.productListView {
   position: absolute;
-  margin-top: 50px;
+  top: 10%;
   width: 100%;
-  height: 100%;
-  background-color: white;
+  height: 90%;
 }
+
 .productView {
   display: inline-block;
   flex-direction: column;
   width: 50%;
   height: 380rpx;
+  background-color: white;
 }
 
 .productImage {
@@ -151,7 +159,7 @@ page {
   align-items: center;
   margin: 0px;
   width: 100%;
-  height: 80rpx;
+  height: 100rpx;
 }
 
 .productText {
@@ -161,7 +169,7 @@ page {
 }
 
 .priceText {
-  margin-top: 5px;
+  margin-top: 15px;
   font-size: 14px;
   font-family: "Helvetica Neue",
                  Helvetica,
@@ -198,9 +206,10 @@ page {
   flex-direction: column;
   top: 0;
   left: 20%;
-  width: 80%;
   height: 100%;
   background-color: #fff;
+  transform: rotate(0deg) scale(1) translate(0%,0%); 
+  -webkit-transform: rotate(0deg) scale(1) translate(0%,0%); 
 }
 
 .propertyClassView {
@@ -210,15 +219,35 @@ page {
 
 .footView {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   position: fixed;
   bottom: 0;
   width: 100%;
   height: 40px;
-  background-color: #63a0d4;
+}
+
+.resetView {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  height: 100%;
   color: white;
   font-size: 13px;
+  background-color: red;
+}
+
+.sureView {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  height: 100%;
+  color: white;
+  font-size: 13px;
+  background-color: #63a0d4;
 }
 
 .scrollView {
@@ -230,7 +259,7 @@ page {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 80px;
+  height: 65px;
 }
 
 .TitleText {
@@ -272,7 +301,6 @@ page {
 }
 
 .popClassView {
-  margin-top: 0px;
   width: 100%;
   height: 95px;
 }
@@ -305,6 +333,7 @@ page {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
 .popPropertyView {
   display: flex;
   flex-direction: column;
@@ -317,6 +346,30 @@ page {
   width: 100%;
 }
 
+.loadMoreView {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+  width: 100%;
+  height: 40px;
+  color: gray;
+  font-size: 13px;
+  line-height: 40px;
+  text-align: center;
+}
+.goTopView {
+  position: absolute;
+  display: block;
+  bottom: 50px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+}
+.topImage{
+  width: 100%;
+  height: 100%;
+}
 /*.classTopView {
   position: absolute;
   display: flex;

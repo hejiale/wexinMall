@@ -11,8 +11,13 @@ Page({
   },
 
   onHeadClicked: function () {
-    wx.navigateTo({
-      url: '../personInfo/personInfo'
+    wx.chooseImage({
+      count: 9, 
+      sizeType: ['original', 'compressed'], 
+      sourceType: ['album', 'camera'],
+      success: function (res) {
+        console.log(res)
+      }
     })
   },
 
@@ -56,7 +61,7 @@ Page({
               wx.hideToast();
             })
 
-            app.onLogin(function(){
+            app.onLogin(function () {
 
             })
           }

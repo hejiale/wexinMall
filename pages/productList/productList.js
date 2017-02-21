@@ -4,7 +4,7 @@ var app = getApp()
 Page({
   data: {
     productList: [],
-    showOrHide: 'hide',
+    showOrHide: 'show',
     showContent: 'show',
     classList: ['镜架',
       '太阳眼镜',
@@ -16,30 +16,26 @@ Page({
     allProperty: [],
     categoryNameList: [],
     propertyNameList: [],
-    currentPage: 1,
+    currentPage: 0,
     keyWord: '',
     startPrice: '',
     endPrice: '',
     selectedPropertys: [],
-    animationData: {}
+    // animationData: {},
+    totalProducts: 0,
+    allProductList: null,
+    hasNoData: 'show',
+    isShowToTop: 'hide',
+    scrollTop: 0,
+    isShowClear: 'hide',
+    deviceWidth: 0,
+    deviceHeight: 0
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
     var that = this;
-    that.setData({ currentTypeName: "镜架" });
-  },
-  onShow: function () {
-    // 页面显示
-    var animation = wx.createAnimation({
-      duration: 1000,
-      timingFunction: 'ease',
-      delay: 0,
-      transformOrigin: '50% 50% 0',
-    })
-    this.animation = animation;
-    this.setData({
-      animationData: this.animation.export()
-    })
+    var list = new Array();
+    that.setData({ currentTypeName: "镜架", allProductList: list });
 
     var that = this;
     wx.getStorage({
@@ -54,6 +50,24 @@ Page({
         }
       }
     })
+
+    app.getSystemInfo(function (systemInfo) {
+      that.setData({ deviceWidth: systemInfo.windowWidth, deviceHeight: systemInfo.windowHeight })
+    })
+  },
+  onShow: function () {
+    // 页面显示
+    // var animation = wx.createAnimation({
+    //   duration: 1000,
+    //   timingFunction: 'ease',
+    //   delay: 0,
+    //   transformOrigin: '50% 50% 0',
+    // })
+    // this.animation = animation;
+    // this.setData({
+    //   animationData: this.animation.export()
+    // })
+    // this.setData({ showOrHide: 'show' });
   },
   onProductDetail: function (event) {
     var value = event.currentTarget.dataset.key;
@@ -64,17 +78,29 @@ Page({
   },
   onClassClicked: function (e) {
     this.setData({ showOrHide: 'show' });
-    this.setData({ showClass: 'show' });
 
-    this.animation.translateX(0).step()
-    this.setData({
-      animationData: this.animation.export()
-    })
+    // this.animation.translateX(0).step()
+    // this.setData({
+    //   animationData: this.animation.export()
+    // })
   },
   onSearchProduct: function (event) {
     var that = this
-    that.setData({ keyWord: event.detail.value })
+    that.setData({ keyWord: event.detail.value, currentPage: 0 })
+    that.data.allProductList.splice(0, that.data.allProductList.length);
     that.queryCategorys();
+  },
+  onEditFocus: function (event) {
+    this.setData({ isShowClear: 'show' });
+  },
+  onClearSearchText: function (){
+    var that = this;
+    that.setData({keyWord: ''});
+    that.queryCategorys();
+  },
+  onEndEdit: function (){
+    var that = this;
+    that.setData({ isShowClear: 'hide' });
   },
   onBgClicked: function () {
     this.setData({ showOrHide: 'hide' });
@@ -83,8 +109,9 @@ Page({
   onUnSelectedClass: function (event) {
     var value = event.currentTarget.dataset.key;
     var that = this;
-    that.setData({ currentTypeName: value, startPrice: '', endPrice: '' });
+    that.setData({ currentTypeName: value, startPrice: '', endPrice: '', currentPage: 0 });
     that.data.selectedPropertys.splice(0, that.data.selectedPropertys.length);
+    that.data.allProductList.splice(0, that.data.allProductList.length);
     that.queryCategorys();
   },
   onSelectedClass: function (event) {
@@ -116,6 +143,8 @@ Page({
         }
       }
     }
+    that.setData({ currentPage: 0 });
+    that.data.allProductList.splice(0, that.data.allProductList.length);
     that.queryCategorys();
   },
   //--------------输入价格操作----------------//
@@ -131,8 +160,28 @@ Page({
   },
   onSureFilterProducts: function () {
     var that = this;
-    this.setData({ showOrHide: 'hide' });
+    this.setData({ showOrHide: 'hide', currentPage: 0 });
+    that.data.allProductList.splice(0, that.data.allProductList.length);
     that.queryCategorys();
+  },
+  onResetProperty: function () {
+    var that = this;
+    that.setData({ currentTypeName: "镜架", startPrice: '', endPrice: '', currentPage: 0 });
+    that.data.selectedPropertys.splice(0, that.data.selectedPropertys.length);
+    that.data.allProductList.splice(0, that.data.allProductList.length);
+    that.queryCategorys();
+  },
+  onLoadMore: function () {
+    var that = this;
+    var page = that.data.currentPage;
+    page = page + 20;
+    that.setData({ currentPage: page });
+    that.queryCategorys();
+  },
+  goTopScroll: function () {
+    this.setData({
+      scrollTop: 0
+    })
   },
   //-------------------类型名称-----------------//
   getTypeName: function () {
@@ -198,11 +247,11 @@ Page({
         var propertyList = new Array();
         for (var key in objectList) {
           if (objectList[key].length > 0) {
-            var propertyObject = new Object();
-            propertyObject.title = key;
-
             var valueList = new Array();
             var value = objectList[key];
+
+            var propertyObject = new Object();
+            propertyObject.title = key;
 
             for (var i = 0; i < value.length; i++) {
               var valueObject = new Object();
@@ -248,11 +297,14 @@ Page({
     filterObject.sessionId = app.globalData.ipcApp.getSessionID();
     filterObject.storeId = that.data.currentStoreID;
     filterObject.start = that.data.currentPage;
-    filterObject.limit = 1000;
+    filterObject.limit = 20;
     filterObject.hot = false;
-    filterObject.startPrice = parseFloat(that.data.startPrice);
-    filterObject.endPrice = parseFloat(that.data.endPrice);
-
+    if (that.data.startPrice) {
+      filterObject.startPrice = parseFloat(that.data.startPrice);
+    }
+    if (that.data.endPrice) {
+      filterObject.endPrice = parseFloat(that.data.endPrice);
+    }
     wx.request({
       url: app.HostURL + '/wechat/webapp/mall/searchProduct',
       data: JSON.stringify(filterObject),
@@ -260,7 +312,14 @@ Page({
       header: { 'content-type': 'application/json' },
       success: function (res) {
         console.log(res)
-        if (res.data.result.list.length == 0) {
+        var list = res.data.result.list;
+        if (res.data.result.total <= that.data.currentPage + 20) {
+          that.setData({ hasNoData: 'hide' });
+        } else {
+          that.setData({ hasNoData: 'show' });
+        }
+
+        if (list.length == 0) {
           wx.showToast({
             title: '未查询到商品!',
             icon: 'success',
@@ -269,10 +328,27 @@ Page({
         } else {
           wx.hideToast();
         }
+
+        var allList = that.data.allProductList;
+        for (var i = 0; i < list.length; i++) {
+          var object = list[i];
+          allList.push(object);
+        }
+
         that.setData({
-          productList: res.data.result.list
+          allProductList: allList,
+          totalProducts: res.data.result.total,
         })
       }
     })
-  }
+  },
+  scroll: function (event) {
+    console.log(event.detail.scrollTop)
+    var that = this;
+    if (event.detail.scrollTop > that.data.deviceHeight) {
+      that.setData({ isShowToTop: 'show' })
+    } else {
+      that.setData({ isShowToTop: 'hide' })
+    }
+  },
 })

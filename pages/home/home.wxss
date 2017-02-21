@@ -110,7 +110,7 @@ page {
   font-size: 12px;
   line-height: 26px;
   color: white;
-  letter-spacing: 1px;
+  letter-spacing: 1rpx;
   font-family: "Helvetica Neue",
                  Helvetica,
                  Arial,
@@ -205,7 +205,7 @@ page {
 }
 
 .specialTitle {
-  font-size: 14px;
+  font-size: 15px;
   color: gray;
   font-family: "Helvetica Neue",
                  Helvetica,
@@ -216,6 +216,7 @@ page {
                  "WenQuanYi Micro Hei",
                  sans-serif;
   font-weight: 100;
+  letter-spacing: 3rpx;
 }
 
 .specialSubTitle {

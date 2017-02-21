@@ -62,7 +62,7 @@
 </view>-->
 <view class="showPropertyBgView {{showOrHide}}">
   <view id="classViewCover" bindtap="onBgClicked"></view>
-  <view class="popContentView" animation="{{animationData}}">
+  <view class="popContentView">
     <view class="propertyClassView">
       <scroll-view scroll-y="true" class="scrollView" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" style="height:calc(100% - 40px)">
         <view class="priceView">
@@ -81,7 +81,7 @@
               <view class="classItem" style="background-color: #fbf9fe;" wx:if="{{currentTypeName != item}}" data-key="{{item}}" bindtap="onUnSelectedClass">
                 <label class="classItemText" style="color:gray">{{item}}</label>
               </view>
-              <view class="classItem" style="background-color: orangered;" wx:if="{{currentTypeName == item}}" bindtap="onSelectedClass" data-key="{{item}}">
+              <view class="classItem" style="background-color: #63a0d4;" wx:if="{{currentTypeName == item}}" bindtap="onSelectedClass" data-key="{{item}}">
                 <label class="classItemText" style="color: white;">{{item}}</label>
               </view>
             </block>
@@ -95,7 +95,7 @@
                 <view class="classItem" data-key="{{item}}" bindtap="onSelectProperty" style="background-color: #fbf9fe;" wx:if="{{!item.isSelected}}">
                   <text class="classItemText" style="color:gray">{{item.title}}</text>
                 </view>
-                <view class="classItem" data-key="{{item}}" bindtap="onSelectProperty" style="background-color: orangered;" wx:if="{{item.isSelected}}">
+                <view class="classItem" data-key="{{item}}" bindtap="onSelectProperty" style="background-color: #63a0d4;" wx:if="{{item.isSelected}}">
                   <text class="classItemText" style="color:white">{{item.title}}</text>
                 </view>
               </block>
@@ -104,7 +104,10 @@
         </block>
       </scroll-view>
     </view>
-    <view class="footView" bindtap="onSureFilterProducts">完成</view>
+    <view class="footView">
+      <view class="resetView" bindtap="onResetProperty">重置</view>
+      <view class="sureView" bindtap="onSureFilterProducts">完成(共{{totalProducts}}件商品)</view>
+    </view>
   </view>
 </view>
 <view class="page {{showContent}}">
@@ -115,11 +118,14 @@
     </view>
     <view class="search-input">
       <image class="search-icon" src="../images/icon_search.png" mode="aspectFit" />
-      <input class="serach-text" placeholder-style="font-size:12px;color:lightgrey;" placeholder="搜索本店所有商品" bindconfirm="onSearchProduct" />
+      <input class="serach-text" placeholder-style="font-size:12px;color:lightgrey;" placeholder="搜索本店所有商品" bindconfirm="onSearchProduct" bindfocus="onEditFocus" style="width: {{deviceWidth*0.8 - 50}}px;font-size: 13px;color: gray;" value="{{keyWord}}" bindblur="onEndEdit"/>
+      <view class="clearView {{isShowClear}}" bindtap="onClearSearchText">
+        <image src="../images/clear_icon.png" class="clearImage"></image>
+      </view>
     </view>
   </view>
-  <scroll-view scroll-y="true" class="productListView">
-    <block wx:for-items="{{productList}}">
+  <scroll-view scroll-y="true" class="productListView" scroll-top="{{scrollTop}}" bindscroll="scroll">
+    <block wx:for-items="{{allProductList}}">
       <view class="productView">
         <image src="{{item.photos['缩略图'].photoLinkNormal}}" class="productImage" mode="aspectFit" bindtap="onProductDetail" data-key="{{item}}"></image>
         <view class="productInfoView">
@@ -128,5 +134,9 @@
         </view>
       </view>
     </block>
+    <view class="loadMoreView {{hasNoData}}" bindtap="onLoadMore">查看更多</view>
   </scroll-view>
+  <view class="goTopView {{isShowToTop}}" bindtap="goTopScroll">
+    <image src="../images/return_top_btn.png" mode="aspectFit" class="topImage"></image>
+  </view>
 </view>
