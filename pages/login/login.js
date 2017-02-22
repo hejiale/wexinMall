@@ -15,6 +15,12 @@ Page({
     })
   },
   onSure: function () {
+    wx.showToast({
+      title: '登录中...',
+      icon: 'loading',
+      duration: 10000
+    })
+
     var that = this;
     app.onBindLogin(function (loginInfo) {
       if (loginInfo.data.retCode == 0) {
@@ -42,8 +48,11 @@ Page({
             delta: 1
           })
         }
+        wx.hideToast();
+
         var ipcApp = app.globalData.ipcApp
         ipcApp.setSessionID(loginInfo.data.result.sessionId)
+
       } else {
         wx.showToast({
           title: '登录失败'

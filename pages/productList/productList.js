@@ -93,12 +93,12 @@ Page({
   onEditFocus: function (event) {
     this.setData({ isShowClear: 'show' });
   },
-  onClearSearchText: function (){
+  onClearSearchText: function () {
     var that = this;
-    that.setData({keyWord: ''});
+    that.setData({ keyWord: '' });
     that.queryCategorys();
   },
-  onEndEdit: function (){
+  onEndEdit: function () {
     var that = this;
     that.setData({ isShowClear: 'hide' });
   },
@@ -183,6 +183,19 @@ Page({
       scrollTop: 0
     })
   },
+  onFilterOpen: function (event) {
+    console.log(event);
+    var that = this;
+    var data = event.currentTarget.dataset.key;
+    var allProperty = that.data.allProperty;
+    for (var i = 0; i < allProperty.length; i++) {
+      var property = allProperty[i];
+      if (property.title == data.title) {
+        property.isOpen = !property.isOpen;
+      }
+    }
+    that.setData({ allProperty: allProperty });
+  },
   //-------------------类型名称-----------------//
   getTypeName: function () {
     var typeName = '';
@@ -252,6 +265,12 @@ Page({
 
             var propertyObject = new Object();
             propertyObject.title = key;
+            propertyObject.isOpen = false;
+            if (value.length > 6) {
+              propertyObject.isShowOpen = 'show';
+            } else {
+              propertyObject.isShowOpen = 'hide';
+            }
 
             for (var i = 0; i < value.length; i++) {
               var valueObject = new Object();

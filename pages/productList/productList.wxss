@@ -206,10 +206,11 @@ page {
   flex-direction: column;
   top: 0;
   left: 20%;
+  width: 80%;
   height: 100%;
   background-color: #fff;
-  transform: rotate(0deg) scale(1) translate(0%,0%); 
-  -webkit-transform: rotate(0deg) scale(1) translate(0%,0%); 
+  /*transform: rotate(0deg) scale(1) translate(0%,0%); 
+  -webkit-transform: rotate(0deg) scale(1) translate(0%,0%); */
 }
 
 .propertyClassView {
@@ -224,7 +225,7 @@ page {
   align-items: center;
   position: fixed;
   bottom: 0;
-  width: 100%;
+  width: 80%;
   height: 40px;
 }
 
@@ -339,11 +340,39 @@ page {
   flex-direction: column;
   margin-top: 10px;
   width: 100%;
+  
 }
-
+.popPropertyTitleView{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 20px;
+}
+.propertyOpenView{
+  display: flex;
+  align-items: center;
+  width: 50px;
+  height: 100%;
+}
+.openImage{
+  margin-left: 17px;
+  width: 15px;
+  height: 8px;
+}
 .propertysView {
   margin-top: 0px;
   width: 100%;
+  max-height: 70px;
+  overflow: hidden;
+  transition: all 168ms ease-out;
+}
+.openBar {
+  max-height: none;
+  margin-top: 0px;
+  width: 100%;
+  overflow: hidden;
+  transition: all 168ms ease-out;
 }
 
 .loadMoreView {

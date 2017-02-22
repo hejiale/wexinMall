@@ -89,8 +89,14 @@
         </view>
         <block wx:for-items="{{allProperty}}">
           <view class="popPropertyView">
-            <text class="TitleText">{{item.title}}</text>
-            <view class="propertysView">
+            <view class="popPropertyTitleView">
+              <text class="TitleText">{{item.title}}</text>
+              <view class="propertyOpenView {{item.isShowOpen}}" bindtap="onFilterOpen" data-key="{{item}}">
+                <image src="../images/filter_open.png" class="openImage" wx:if="{{!item.isOpen}}"></image>
+                <image src="../images/filter_closed.png" class="openImage" wx:if="{{item.isOpen}}"></image>
+              </view>
+            </view>
+            <view class="{{item.isOpen ? 'openBar':'propertysView'}}">
               <block wx:for-items="{{item.value}}">
                 <view class="classItem" data-key="{{item}}" bindtap="onSelectProperty" style="background-color: #fbf9fe;" wx:if="{{!item.isSelected}}">
                   <text class="classItemText" style="color:gray">{{item.title}}</text>
@@ -118,7 +124,8 @@
     </view>
     <view class="search-input">
       <image class="search-icon" src="../images/icon_search.png" mode="aspectFit" />
-      <input class="serach-text" placeholder-style="font-size:12px;color:lightgrey;" placeholder="搜索本店所有商品" bindconfirm="onSearchProduct" bindfocus="onEditFocus" style="width: {{deviceWidth*0.8 - 50}}px;font-size: 13px;color: gray;" value="{{keyWord}}" bindblur="onEndEdit"/>
+      <input class="serach-text" placeholder-style="font-size:12px;color:lightgrey;" placeholder="搜索本店所有商品" bindconfirm="onSearchProduct" bindfocus="onEditFocus" style="width: {{deviceWidth*0.8 - 50}}px;font-size: 13px;color: gray;" value="{{keyWord}}" bindblur="onEndEdit"
+      />
       <view class="clearView {{isShowClear}}" bindtap="onClearSearchText">
         <image src="../images/clear_icon.png" class="clearImage"></image>
       </view>
