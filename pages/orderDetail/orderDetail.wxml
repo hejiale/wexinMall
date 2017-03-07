@@ -2,7 +2,7 @@
 <!--pages/orderDetail/orderDetail.wxml-->
 <view class="page">
   <view class="headView">
-    <image src="../images/personalOrderBg.png" class="headImage"></image>
+    <image src="../images/personalOrderBg.png" class="headImage" mode="scaleToFill"></image>
     <view class="headTextView">
       <text class="headText">{{orderDetail.orderStatus}}</text>
     </view>

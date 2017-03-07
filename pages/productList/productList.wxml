@@ -81,7 +81,7 @@
               <view class="classItem" style="background-color: #fbf9fe;" wx:if="{{currentTypeName != item}}" data-key="{{item}}" bindtap="onUnSelectedClass">
                 <label class="classItemText" style="color:gray">{{item}}</label>
               </view>
-              <view class="classItem" style="background-color: #63a0d4;" wx:if="{{currentTypeName == item}}" bindtap="onSelectedClass" data-key="{{item}}">
+              <view class="classItem" style="background-color: #63a0d4;" wx:else bindtap="onSelectedClass" data-key="{{item}}">
                 <label class="classItemText" style="color: white;">{{item}}</label>
               </view>
             </block>
@@ -93,7 +93,7 @@
               <text class="TitleText">{{item.title}}</text>
               <view class="propertyOpenView {{item.isShowOpen}}" bindtap="onFilterOpen" data-key="{{item}}">
                 <image src="../images/filter_open.png" class="openImage" wx:if="{{!item.isOpen}}"></image>
-                <image src="../images/filter_closed.png" class="openImage" wx:if="{{item.isOpen}}"></image>
+                <image src="../images/filter_closed.png" class="openImage" wx:else></image>
               </view>
             </view>
             <view class="{{item.isOpen ? 'openBar':'propertysView'}}">
@@ -101,7 +101,7 @@
                 <view class="classItem" data-key="{{item}}" bindtap="onSelectProperty" style="background-color: #fbf9fe;" wx:if="{{!item.isSelected}}">
                   <text class="classItemText" style="color:gray">{{item.title}}</text>
                 </view>
-                <view class="classItem" data-key="{{item}}" bindtap="onSelectProperty" style="background-color: #63a0d4;" wx:if="{{item.isSelected}}">
+                <view class="classItem" data-key="{{item}}" bindtap="onSelectProperty" style="background-color: #63a0d4;" wx:else>
                   <text class="classItemText" style="color:white">{{item.title}}</text>
                 </view>
               </block>
@@ -112,26 +112,41 @@
     </view>
     <view class="footView">
       <view class="resetView" bindtap="onResetProperty">重置</view>
-      <view class="sureView" bindtap="onSureFilterProducts">完成(共{{totalProducts}}件商品)</view>
+      <view class="sureView" bindtap="onSureFilterProducts">完成</view>
+    </view>
+  </view>
+</view>
+<view class="searchContentView {{showSearchContent}}">
+  <view class="topMenuView">
+    <view class="search-input" bindtap="onSearchAction">
+      <image class="search-icon" src="../images/icon_search.png" mode="aspectFit" />
+      <input class="inputSearch" bindconfirm="onSearchProduct"/>
+    </view>
+    <text style="font-size: 14px;margin-top: 5px;color: gray;" bindtap="onCancelAction">取消</text>
+  </view>
+  <view class="hotSearchView">
+    <text class="hotTitle">热门搜索</text>
+    <view class="hotItemView">
+      <block wx:for-items="{{classList}}">
+        <view class="classItem" style="background-color: #fbf9fe;" data-key="{{item}}">
+          <label class="classItemText" style="color:gray">{{item}}</label>
+        </view>
+      </block>
     </view>
   </view>
 </view>
 <view class="page {{showContent}}">
-  <view class="search">
-    <view class="scan" bindtap="onClassClicked">
-      <image class="widgets-img" src="../images/icon_class.png" mode="aspectFit" />
+  <view class="topMenuView">
+    <view class="search-input" bindtap="onSearchAction">
+      <image class="search-icon" src="../images/icon_search.png" mode="aspectFit" />
+      <text class="serach-text">{{keyWord}}</text>
+    </view>
+    <view class="classImageView" bindtap="onClassClicked">
+      <image class="class-img" src="../images/icon_class.png" mode="aspectFit" />
       <text style="font-size: 11px;margin-top: 5px;color: lightgrey;">分类</text>
     </view>
-    <view class="search-input">
-      <image class="search-icon" src="../images/icon_search.png" mode="aspectFit" />
-      <input class="serach-text" placeholder-style="font-size:12px;color:lightgrey;" placeholder="搜索本店所有商品" bindconfirm="onSearchProduct" bindfocus="onEditFocus" style="width: {{deviceWidth*0.8 - 50}}px;font-size: 13px;color: gray;" value="{{keyWord}}" bindblur="onEndEdit"
-      />
-      <view class="clearView {{isShowClear}}" bindtap="onClearSearchText">
-        <image src="../images/clear_icon.png" class="clearImage"></image>
-      </view>
-    </view>
   </view>
-  <scroll-view scroll-y="true" class="productListView" scroll-top="{{scrollTop}}" bindscroll="scroll">
+  <scroll-view scroll-y="true" class="productListView" scroll-top="{{scrollTop}}" bindscroll="scroll" bindscrolltolower="onLoadMore">
     <block wx:for-items="{{allProductList}}">
       <view class="productView">
         <image src="{{item.photos['缩略图'].photoLinkNormal}}" class="productImage" mode="aspectFit" bindtap="onProductDetail" data-key="{{item}}"></image>
@@ -141,7 +156,17 @@
         </view>
       </view>
     </block>
-    <view class="loadMoreView {{hasNoData}}" bindtap="onLoadMore">查看更多</view>
+
+    <!--<view class="loadAlertView">
+      <view wx:if="{{hasMore}}" style="display: flex;flex-direction: row;align-items: center;align-self: center;justify-content: center;">
+        <text>玩命的加载中...</text>
+      </view>
+      <view wx:else>
+        <text>没有更多内容了</text>
+      </view>
+    </view>-->
+
+    <!--<view class="loadMoreView {{hasNoData}}" bindtap="onLoadMore">查看更多</view>-->
   </scroll-view>
   <view class="goTopView {{isShowToTop}}" bindtap="goTopScroll">
     <image src="../images/return_top_btn.png" mode="aspectFit" class="topImage"></image>

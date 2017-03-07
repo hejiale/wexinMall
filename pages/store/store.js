@@ -29,6 +29,7 @@ Page({
               method: 'POST',
               header: { 'content-type': 'application/json' },
               success: function (res) {
+                console.log(res)
                 that.setData({ storeList: res.data.result })
               }
             })

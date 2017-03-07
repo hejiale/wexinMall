@@ -55,7 +55,7 @@
       </view>
     </view>
     <view class="productInfoView">
-      <block wx:for-items="{{template[3].productTemplateDetails}}">
+      <block wx:for-items="{{template[3].templateDetails}}">
         <view class="productView" data-key="{{item}}" bindtap="onProductDetail">
           <image src="{{item.photoURL}}" class="productImage" mode="aspectFit"></image>
           <view class="productNameView">
@@ -68,16 +68,14 @@
     <view class="specialView">
       <view class="topSlash"></view>
       <view class="textArea">
-        <text class="specialTitle">{{template[1].templateDetails[0].title}}</text>
-        <text class="specialSubTitle">{{template[1].templateDetails[0].subTitle}}</text>
+        <text class="specialTitle">{{template[4].templateDetails[0].title}}</text>
+        <text class="specialSubTitle">{{template[4].templateDetails[0].subTitle}}</text>
       </view>
       <view class="bottomSlash"></view>
     </view>
     <view class="productShowView">
       <view class="topShowView">
         <view class="showView1" style="background-image:{{showFirstStyle.image}};background-size: cover;background-repeat: no-repeat;">
-
-          <!--<text class="showText">Clubmaster Oversized</text>-->
           <text class="priceText">{{}}</text>
           <text class="showNameText">{{showFirstStyle.title}}</text>
         </view>

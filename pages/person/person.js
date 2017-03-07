@@ -6,21 +6,30 @@ Page({
     showLogin: 'show',
     showPerson: 'hide',
   },
-
-  onLoad: function (options) {
-  },
-
   onHeadClicked: function () {
+    var that = this;
     wx.chooseImage({
-      count: 9, 
-      sizeType: ['original', 'compressed'], 
-      sourceType: ['album', 'camera'],
       success: function (res) {
-        console.log(res)
+        var tempFilePaths = res.tempFilePaths
+        var formData = new FormData();
+        formData.append('img', tempFilePaths[0]);
+
+        var parameter = new Object();
+        parameter.api_key = 'AaLAVv-OM4N02JUsnP-vvQELCqtd3_zB';
+        parameter.api_secret = 'ZCyXoZMxdRJF4RU_21SBzIO6GZJV8LdE';
+
+        wx.request({
+          url: 'https://api-cn.faceplusplus.com/facepp/v3/detect',
+          data: parameter,
+          method: 'POST',
+          header: { 'content-type': 'application/json' },
+          success: function (res) {
+            console.log(res)
+          },
+        })
       }
     })
   },
-
   onLogin: function () {
     wx.navigateTo({
       url: '../login/login'

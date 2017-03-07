@@ -12,6 +12,7 @@
       <view class="contentView" bindtap="onSelectStore" data-key="{{item}}">
         <view class="storeLeftView">
           <text class="contentText">{{item.storeName}}</text>
+          <text class="addressText">{{item.storeAddress}}</text>
         </view>
         <view class="storeRightView">
           <image src="../images/icon_arrow.png" class="storeArrowImage"></image>

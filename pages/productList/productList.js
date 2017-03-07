@@ -6,10 +6,14 @@ Page({
     productList: [],
     showOrHide: 'show',
     showContent: 'show',
+    showSearchContent:'hide',
     classList: ['镜架',
       '太阳眼镜',
       '定制类眼镜',
-      '老花眼镜'],
+      '老花眼镜',
+      '隐形眼镜',
+      '镜片',
+      '配件'],
     currentStoreID: 0,
     currentType: '',
     currentTypeName: '',
@@ -21,15 +25,14 @@ Page({
     startPrice: '',
     endPrice: '',
     selectedPropertys: [],
-    // animationData: {},
     totalProducts: 0,
     allProductList: null,
     hasNoData: 'show',
     isShowToTop: 'hide',
     scrollTop: 0,
-    isShowClear: 'hide',
     deviceWidth: 0,
-    deviceHeight: 0
+    deviceHeight: 0,
+    hasMore: true
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
@@ -55,20 +58,6 @@ Page({
       that.setData({ deviceWidth: systemInfo.windowWidth, deviceHeight: systemInfo.windowHeight })
     })
   },
-  onShow: function () {
-    // 页面显示
-    // var animation = wx.createAnimation({
-    //   duration: 1000,
-    //   timingFunction: 'ease',
-    //   delay: 0,
-    //   transformOrigin: '50% 50% 0',
-    // })
-    // this.animation = animation;
-    // this.setData({
-    //   animationData: this.animation.export()
-    // })
-    // this.setData({ showOrHide: 'show' });
-  },
   onProductDetail: function (event) {
     var value = event.currentTarget.dataset.key;
     var proId = value.id.split("-")
@@ -78,29 +67,18 @@ Page({
   },
   onClassClicked: function (e) {
     this.setData({ showOrHide: 'show' });
-
-    // this.animation.translateX(0).step()
-    // this.setData({
-    //   animationData: this.animation.export()
-    // })
   },
   onSearchProduct: function (event) {
     var that = this
-    that.setData({ keyWord: event.detail.value, currentPage: 0 })
+    that.setData({ keyWord: event.detail.value, currentPage: 0 ,showSearchContent:'hide'})
     that.data.allProductList.splice(0, that.data.allProductList.length);
-    that.queryCategorys();
+    that.queryProducts();
   },
-  onEditFocus: function (event) {
-    this.setData({ isShowClear: 'show' });
+  onSearchAction: function(){
+    this.setData({showSearchContent: 'show'})
   },
-  onClearSearchText: function () {
-    var that = this;
-    that.setData({ keyWord: '' });
-    that.queryCategorys();
-  },
-  onEndEdit: function () {
-    var that = this;
-    that.setData({ isShowClear: 'hide' });
+  onCancelAction: function(){
+    this.setData({showSearchContent: 'hide'})
   },
   onBgClicked: function () {
     this.setData({ showOrHide: 'hide' });
@@ -109,13 +87,12 @@ Page({
   onUnSelectedClass: function (event) {
     var value = event.currentTarget.dataset.key;
     var that = this;
-    that.setData({ currentTypeName: value, startPrice: '', endPrice: '', currentPage: 0 });
+    that.setData({ currentTypeName: value, startPrice: '', endPrice: '', currentPage: 0 ,scrollTop: 0});
     that.data.selectedPropertys.splice(0, that.data.selectedPropertys.length);
     that.data.allProductList.splice(0, that.data.allProductList.length);
     that.queryCategorys();
   },
   onSelectedClass: function (event) {
-
   },
   //----------------选择属性参数-----------------//
   onSelectProperty: function (event) {
@@ -166,7 +143,7 @@ Page({
   },
   onResetProperty: function () {
     var that = this;
-    that.setData({ currentTypeName: "镜架", startPrice: '', endPrice: '', currentPage: 0 });
+    that.setData({ currentTypeName: "镜架", startPrice: '', endPrice: '', currentPage: 0, scrollTop: 0 });
     that.data.selectedPropertys.splice(0, that.data.selectedPropertys.length);
     that.data.allProductList.splice(0, that.data.allProductList.length);
     that.queryCategorys();
@@ -176,7 +153,7 @@ Page({
     var page = that.data.currentPage;
     page = page + 20;
     that.setData({ currentPage: page });
-    that.queryCategorys();
+    that.queryProducts();
   },
   goTopScroll: function () {
     this.setData({
@@ -207,17 +184,16 @@ Page({
       typeName = 'CUSTOMIZED';
     } else if (this.data.currentTypeName == '老花眼镜') {
       typeName = 'READING_GLASSES';
+    } else if (this.data.currentTypeName == '隐形眼镜') {
+      typeName = 'CONTACT_LENSES';
+    }else if (this.data.currentTypeName == '镜片') {
+      typeName = 'LENS';
+    }else if (this.data.currentTypeName == '配件') {
+      typeName = 'ACCESSORY';
     }
     this.setData({ currentType: typeName })
   },
-  //-------------获取商品分类参数---------------//
-  queryCategorys: function () {
-    wx.showToast({
-      title: '加载中...',
-      icon: 'loading',
-      duration: 10000
-    })
-
+  queryFilterValue: function () {
     var filterValue = new Map();
     var selectValue = new Array();
 
@@ -236,9 +212,14 @@ Page({
         }
       }
     });
+    return filterValue;
+  },
+  //-------------获取商品分类参数---------------//
+  queryCategorys: function () {
+    var that = this;
     that.getTypeName();
     var filterObject = new Object();
-    filterValue.forEach(function (item, key, mapObj) {
+    that.queryFilterValue().forEach(function (item, key, mapObj) {
       filterObject[key] = item;
     });
 
@@ -297,16 +278,21 @@ Page({
           }
         }
         that.setData({ allProperty: propertyList });
-        that.queryProducts(filterValue);
+        that.queryProducts();
       },
     })
   },
   //-------------筛选商品-------------//
-  queryProducts: function (filterValue) {
-    var that = this;
+  queryProducts: function () {
+    wx.showToast({
+      title: '加载中...',
+      icon: 'loading',
+      duration: 10000
+    })
 
+    var that = this;
     var filterObject = new Object();
-    filterValue.forEach(function (item, key, mapObj) {
+    that.queryFilterValue().forEach(function (item, key, mapObj) {
       filterObject[key] = item;
     });
     filterObject.keyword = that.data.keyWord;
@@ -333,21 +319,19 @@ Page({
         console.log(res)
         var list = res.data.result.list;
         if (res.data.result.total <= that.data.currentPage + 20) {
-          that.setData({ hasNoData: 'hide' });
+          that.setData({ hasMore: false });
         } else {
-          that.setData({ hasNoData: 'show' });
+          that.setData({ hasMore: true });
         }
 
         if (list.length == 0) {
           wx.showToast({
             title: '未查询到商品!',
-            icon: 'success',
-            duration: 2000
+            duration: 400
           })
         } else {
           wx.hideToast();
         }
-
         var allList = that.data.allProductList;
         for (var i = 0; i < list.length; i++) {
           var object = list[i];

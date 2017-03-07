@@ -30,7 +30,16 @@
     </view>
   </view>
   <view class="footView">
-    <text class="bookText" bindtap="onBook">立即预约</text>
-    <text class="addCartText" bindtap="onCart">加入购物车</text>
+    <view class="glassTryView" wx:if="{{DetailObject.proTry}}">
+    <image src="../images/icon_try_glass.png" class="tryImage"></image>
+    </view>
+    <view class="rightTryFootView" wx:if="{{DetailObject.proTry}}">
+      <text class="bookText" bindtap="onBook">立即预约</text>
+      <text class="addCartText" bindtap="onCart">加入购物车</text>
+    </view>
+    <view class="rightNoneTryFootView" wx:else>
+      <text class="bookText" bindtap="onBook">立即预约</text>
+      <text class="addCartText" bindtap="onCart">加入购物车</text>
+    </view>
   </view>
 </view>

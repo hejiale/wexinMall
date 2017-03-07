@@ -9,7 +9,7 @@
   </view>
   <view class="personView {{showPerson}}">
     <view class="headView">
-      <image src="../images/personalBackground.png" class="headBgImage"></image>
+      <image src="../images/personalBackground.png" class="headBgImage" mode="scaleToFill"></image>
       <view class="photo_wrap" bindtap="onHeadClicked">
         <image src="{{userInfo.avatarUrl}}" class="photo"></image>
         <text class="userName">{{userInfo.nickName}}</text>

@@ -14,7 +14,7 @@
         <view class="cartView">
           <view class="selectedView" bindtap="onSelected" data-key="{{item}}">
             <image src="../images/radioUncheck.png" class="iconSelectedImage" mode="aspectFit" wx:if="{{!item.isSelected}}"></image>
-            <image src="../images/radio.png" wx:if="{{item.isSelected}}" class="iconSelectedImage" mode="aspectFit"></image>
+            <image src="../images/radio.png" wx:else class="iconSelectedImage" mode="aspectFit"></image>
           </view>
           <image src="{{item.image}}" mode="aspectFit" class="productImage"></image>
           <view class="cartNumView" wx:if="{{canEdit}}">
@@ -26,7 +26,7 @@
               <image src="../images/icon_add@2x.png" class="iconCartImage"></image>
             </view>
           </view>
-          <view class="productInfo" wx:if="{{!canEdit}}">
+          <view class="productInfo" wx:else>
             <view class="productName">
               <text class="productNameText">{{item.name}}</text>
             </view>

@@ -102,7 +102,6 @@ Page({
         var showProductInfo = new Object();
         showProductInfo.image = jsonWindow.backgroundImage;
         showProductInfo.title = jsonTitles.title_1;
-
         that.setData({ showFirstStyle: showProductInfo });
 
         //-----第二组show

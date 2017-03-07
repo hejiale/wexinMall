@@ -4,7 +4,7 @@
       <view class="opmetoryView">
         <view class="selectView {{isSelect}}" bindtap="onSelectOpmetory" data-key="{{item}}">
           <image src="../images/radioUncheck.png" class="selectImage" mode="aspectFit" wx:if="{{selectOpmetory != item.id}}"></image>
-          <image src="../images/radio.png" class="selectImage" mode="aspectFit" wx:if="{{selectOpmetory == item.id}}"></image>
+          <image src="../images/radio.png" class="selectImage" mode="aspectFit" wx:else></image>
         </view>
         <view class="opmetoryInfoView">
           <view class="rightView">
