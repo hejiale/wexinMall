@@ -206,5 +206,8 @@ Page({
     })
   },
   onToCart: function (){
+  },
+  onTryGlassAction: function(){
+    wx.navigateTo({ url: '../tryGlass/tryGlass'})
   }
 })

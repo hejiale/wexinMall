@@ -30,8 +30,8 @@
     </view>
   </view>
   <view class="footView">
-    <view class="glassTryView" wx:if="{{DetailObject.proTry}}">
-    <image src="../images/icon_try_glass.png" class="tryImage"></image>
+    <view class="glassTryView" wx:if="{{DetailObject.proTry}}" bindtap="onTryGlassAction">
+      <image src="../images/icon_try_glass.png" class="tryImage"></image>
     </view>
     <view class="rightTryFootView" wx:if="{{DetailObject.proTry}}">
       <text class="bookText" bindtap="onBook">立即预约</text>

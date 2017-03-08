@@ -120,16 +120,16 @@
   <view class="topMenuView">
     <view class="search-input" bindtap="onSearchAction">
       <image class="search-icon" src="../images/icon_search.png" mode="aspectFit" />
-      <input class="inputSearch" bindconfirm="onSearchProduct"/>
+      <input class="inputSearch" bindconfirm="onSearchProduct" placeholder="搜索本店所有商品" placeholder-style="font-size: 12px;color:lightgray;"/>
     </view>
-    <text style="font-size: 14px;margin-top: 5px;color: gray;" bindtap="onCancelAction">取消</text>
+    <text style="font-size: 13px;color: gray;padding: 5px;" bindtap="onCancelAction">取消</text>
   </view>
   <view class="hotSearchView">
     <text class="hotTitle">热门搜索</text>
     <view class="hotItemView">
       <block wx:for-items="{{classList}}">
-        <view class="classItem" style="background-color: #fbf9fe;" data-key="{{item}}">
-          <label class="classItemText" style="color:gray">{{item}}</label>
+        <view class="searchClassItem" style="background-color: #fbf9fe;" data-key="{{item}}">
+          <label class="searchClassItemText" style="color:gray">{{item}}</label>
         </view>
       </block>
     </view>
@@ -139,7 +139,8 @@
   <view class="topMenuView">
     <view class="search-input" bindtap="onSearchAction">
       <image class="search-icon" src="../images/icon_search.png" mode="aspectFit" />
-      <text class="serach-text">{{keyWord}}</text>
+      <text class="serach-text" style="margin: 0px;width: 100%;line-height: 30px;font-size: 13px;color:black" wx:if="{{keyWord.length > 0}}">{{keyWord}}</text>
+      <text class="serach-text" style="margin: 0px;width: 100%;line-height: 30px;font-size: 12px;color:lightgray" wx:else>搜索本店所有商品</text>
     </view>
     <view class="classImageView" bindtap="onClassClicked">
       <image class="class-img" src="../images/icon_class.png" mode="aspectFit" />
@@ -152,7 +153,7 @@
         <image src="{{item.photos['缩略图'].photoLinkNormal}}" class="productImage" mode="aspectFit" bindtap="onProductDetail" data-key="{{item}}"></image>
         <view class="productInfoView">
           <text class="productText">{{item.name}}</text>
-          <text class="priceText">￥ {{item.suggestPrice}}</text>
+          <text class="priceText">RMB {{item.suggestPrice}}</text>
         </view>
       </view>
     </block>

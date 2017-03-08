@@ -60,7 +60,7 @@
           <image src="{{item.photoURL}}" class="productImage" mode="aspectFit"></image>
           <view class="productNameView">
             <text class="productText">{{item.name}}</text>
-            <text class="priceText">￥ {{item.price}}</text>
+            <text class="priceText">RMB {{item.price}}</text>
           </view>
         </view>
       </block>
@@ -97,7 +97,7 @@
         <image src="{{recommendProducts[0].photoURL}}" class="productImage" mode="aspectFit" bindtap="onProductDetail" data-key="{{recommendProducts[0]}}"></image>
         <view class="productNameView">
           <text class="productText">{{recommendProducts[0].name}}</text>
-          <text class="priceText">￥ {{recommendProducts[0].price}}</text>
+          <text class="priceText">RMB {{recommendProducts[0].price}}</text>
         </view>
       </view>
       <view class="bottomRecommendView">
@@ -105,14 +105,14 @@
           <image src="{{recommendProducts[1].photoURL}}" class="productImage" mode="aspectFit" bindtap="onProductDetail" data-key="{{recommendProducts[0]}}"></image>
           <view class="productNameView">
             <text class="productText">{{recommendProducts[1].name}}</text>
-            <text class="priceText">￥ {{recommendProducts[1].price}}</text>
+            <text class="priceText">RMB {{recommendProducts[1].price}}</text>
           </view>
         </view>
         <view class="bottomRecommendProductView">
           <image src="{{recommendProducts[2].photoURL}}" class="productImage" mode="aspectFit" bindtap="onProductDetail" data-key="{{recommendProducts[0]}}"></image>
           <view class="productNameView">
             <text class="productText">{{recommendProducts[2].name}}</text>
-            <text class="priceText">￥ {{recommendProducts[2].price}}</text>
+            <text class="priceText">RMB {{recommendProducts[2].price}}</text>
           </view>
         </view>
       </view>

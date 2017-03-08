@@ -1,0 +1,6 @@
+<view class="page">
+  <view class="contentView">
+    <image src="../images/startTryGlass.png" class="iconImage" mode="aspectFit"></image>
+    <image src="../images/icon_camera_button.png" class="cameraImage" bindtap="onCameraAction"></image>
+  </view>
+</view>
