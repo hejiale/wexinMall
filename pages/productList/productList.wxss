@@ -1,4 +1,3 @@
-
 page {
   background-color: #fbf9fe;
 }
@@ -96,6 +95,7 @@ page {
   width: 30rpx;
   height: 30rpx;
 }
+
 .class-img {
   width: 16px;
   height: 16px;
@@ -108,7 +108,7 @@ page {
 
 .productListView {
   position: absolute;
-  top:6%;
+  top: 6%;
   width: 100%;
   height: 94%;
 }
@@ -130,6 +130,7 @@ page {
 .productInfoView {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   margin: 0px;
   width: 100%;
@@ -137,9 +138,14 @@ page {
 }
 
 .productText {
+  width: 80%;
   font-size: 13px;
   color: gray;
-  line-height: 50rpx;
+  line-height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
 }
 
 .priceText {
@@ -340,7 +346,6 @@ page {
   width: 100%;
   max-height: 70px;
   overflow: hidden;
-  /*transition: all 168ms ease-out;*/
 }
 
 .openBar {
@@ -348,34 +353,7 @@ page {
   margin-top: 0px;
   width: 100%;
   overflow: hidden;
-  /*transition: all 168ms ease-out;*/
 }
-
-.loadAlertView{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0px;
-  width: 100%;
-  height: 40px;
-  color: gray;
-  font-size: 13px;
-  line-height: 40px;
-  text-align: center;
-}
-
-/*.loadMoreView {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0px;
-  width: 100%;
-  height: 40px;
-  color: gray;
-  font-size: 13px;
-  line-height: 40px;
-  text-align: center;
-}*/
 
 .goTopView {
   position: absolute;
@@ -391,140 +369,7 @@ page {
   height: 100%;
 }
 
-/*.classTopView {
-  position: absolute;
-  display: flex;
-  flex-direction: row;
-  top: 0;
-  width: 100%;
-  height: 50px;
-  background-color: #fff;
-}
-
-.classTitleView {
-  display: flex;
-  justify-content: center;
-  width: calc(100%/3);
-  height: 100%;
-  align-items: center;
-}
-
-.classText {
-  line-height: 50px;
-  font-size: 14px;
-  text-align: center;
-}
-
-.classItemLine {
-  margin-left: 10px;
-  margin-right: 10px;
-  height: 1px;
-  background-color: lightgrey;
-}
-
-.icon {
-  width: 15px;
-  height: 15px;
-}
-
-.scrollView {
-  height: 100%;
-}
-
-.classListView {
-  position: absolute;
-  top: 50px;
-  width: 100%;
-  height: 300px;
-  background-color: #fff;
-  border-top: 1px solid lightgray;
-}
-
-
-
-.topLine {
-  margin-top: 15px;
-  margin-bottom: 15px;
-  width: 1px;
-  background-color: lightgrey;
-}
-
-.checkedImage {
-  margin-right: 20px;
-  width: 20px;
-  height: 12px;
-}
-
-.propertyView {
-  position: absolute;
-  top: 50px;
-  width: 100%;
-  height: 300px;
-  background-color: #fff;
-  border-top: 1px solid lightgray;
-}
-
-.leftKeyView {
-  position: absolute;
-  width: 40%;
-  height: 100%;
-  background-color: #fff;
-}
-
-.rightValueView {
-  margin-left: 40%;
-  position: absolute;
-  width: 60%;
-  height: 100%;
-  background-color: #fff;
-  border-left: 1px solid lightgray;
-}
-
-.priceView {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  top: 50px;
-  width: 100%;
-  height: 120px;
-  background-color: #fff;
-  border-top: 1px solid lightgray;
-}
-
-.inputPriceView {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-top: 20px;
-  height: 34px;
-  align-items: center;
-}
-
-.sureView {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-  margin-left: calc(50% - 100px);
-  width: 200px;
-  height: 34px;
-  background-color: #63a0d4;
-  border-radius: 17px;
-  align-items: center;
-}
-
-.sureText {
-  font-size: 14px;
-  color: white;
-  line-height: 40px;
-  text-align: center;
-}
-*/
-
-.searchContentView{
+.searchContentView {
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -535,30 +380,35 @@ page {
   z-index: 888;
   background-color: white;
 }
-.inputSearch{
+
+.inputSearch {
   margin: 0px;
   width: 100%;
   height: 100%;
   font-size: 12px;
 }
-.hotSearchView{
+
+.hotSearchView {
   display: flex;
   flex-direction: column;
   margin-top: 50px;
   width: 100%;
   height: calc(100%-50px);
 }
-.hotItemView{
-  margin:5px;
+
+.hotItemView {
+  margin: 5px;
   width: 100%;
 }
-.hotTitle{
+
+.hotTitle {
   margin-left: 20px;
   width: 100px;
   line-height: 20px;
-font-size: 16px;
+  font-size: 16px;
 }
-.searchClassItem{
+
+.searchClassItem {
   display: inline-block;
   flex-direction: row;
   align-items: center;
@@ -571,7 +421,8 @@ font-size: 16px;
   text-align: center;
   border-radius: 5px;
 }
-.searchClassItemText{
+
+.searchClassItemText {
   display: inline-block;
   width: 100%;
   line-height: 20px;
@@ -580,6 +431,7 @@ font-size: 16px;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
 .show {
   display: block;
 }

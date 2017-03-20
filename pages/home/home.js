@@ -30,9 +30,6 @@ Page({
       })
     })
   },
-  onReady: function () {
-    // 页面渲染完成
-  },
   onShow: function () {
     // 页面显示
     var that = this;
@@ -87,42 +84,48 @@ Page({
         var templates = res.data.result.templates;
         that.setData({ template: templates })
 
-        //获取查看详情的css样式
-        var style = templates[2].templateDetails[0].imageContentStyle;
-        var jsonStyle = JSON.parse(style);
-        that.setData({ detailStyle: jsonStyle });
-
         //-------获取show四格页面css样式-------//
-
         //-----第一组show
-        var window = templates[5].windowmageTemplateDetails[0].imageContentStyle;
-        var titles = templates[5].windowmageTemplateDetails[0].titles;
-        var jsonWindow = JSON.parse(window);
-        var jsonTitles = JSON.parse(titles);
+        var window = templates[4].windowmageTemplateDetails[0];
+
+        var jsonWindow = JSON.parse(window.imageContentStyle);
+        var jsonTitles = JSON.parse(window.titles);
+        var productInfo = window.productInfo;
+
         var showProductInfo = new Object();
         showProductInfo.image = jsonWindow.backgroundImage;
         showProductInfo.title = jsonTitles.title_1;
+        showProductInfo.product = productInfo;
         that.setData({ showFirstStyle: showProductInfo });
-
         //-----第二组show
-        var window = templates[5].windowmageTemplateDetails[1].imageContentStyle;
-        var jsonWindow = JSON.parse(window);
-        that.setData({ showSecondStyle: jsonWindow });
+        var window = templates[4].windowmageTemplateDetails[1];
+        var jsonWindow = JSON.parse(window.imageContentStyle);
 
+        var showProductInfo = new Object();
+        showProductInfo.image = jsonWindow.backgroundImage;
+        showProductInfo.product = window.productInfo;
+        that.setData({ showSecondStyle: showProductInfo });
         //------第三组show
-        var window = templates[5].windowmageTemplateDetails[2].imageContentStyle;
-        var jsonWindow = JSON.parse(window);
-        that.setData({ showThirdStyle: jsonWindow });
+        var window = templates[4].windowmageTemplateDetails[2];
+        var jsonWindow = JSON.parse(window.imageContentStyle);
 
+        var showProductInfo = new Object();
+        showProductInfo.image = jsonWindow.backgroundImage;
+        showProductInfo.product = window.productInfo;
+        that.setData({ showThirdStyle: showProductInfo });
         //------第四组show
-        var window = templates[5].windowmageTemplateDetails[3].imageContentStyle;
-        var jsonWindow = JSON.parse(window);
-        that.setData({ showFourStyle: jsonWindow });
+        var window = templates[4].windowmageTemplateDetails[3];
+        var jsonWindow = JSON.parse(window.imageContentStyle);
+        var jsonTitles = JSON.parse(window.titles);
 
-        //----推荐商品-----//
-        var recommends = templates[6].templateDetails;
+        var showProductInfo = new Object();
+        showProductInfo.image = jsonWindow.backgroundImage;
+        showProductInfo.product = window.productInfo;
+        showProductInfo.title = jsonTitles.title_1;
+        that.setData({ showFourStyle: showProductInfo });
+        //----------推荐商品-----------//
+        var recommends = templates[5].templateDetails;
         that.setData({ recommendProducts: recommends });
-
         wx.hideToast();
       }
     })
@@ -140,7 +143,7 @@ Page({
   onProductDetail: function (event) {
     var value = event.currentTarget.dataset.key;
     wx.navigateTo({
-      url: '../productDetail/productDetail?id=' + value.glassId
+      url: '../productDetail/productDetail?id=' + value
     })
   }
 })

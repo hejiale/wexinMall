@@ -5,6 +5,7 @@ Page({
     userInfo: null,
     showLogin: 'show',
     showPerson: 'hide',
+    bindPhone: ''
   },
   onHeadClicked: function () {
     var that = this;
@@ -65,7 +66,8 @@ Page({
 
             app.getUserInfo(function (userInfo) {
               that.setData({
-                userInfo: userInfo
+                userInfo: userInfo,
+                bindPhone: app.globalData.ipcApp.getBindPhone()
               })
               wx.hideToast();
             })

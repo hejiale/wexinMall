@@ -47,16 +47,9 @@
       </view>
       <view class="bottomSlash"></view>
     </view>
-    <view class="detailView" style="width: 100%;height:{{deviceWidth*(450/750)}}px;background-image:{{detailStyle.backgroundImage}};background-repeat: no-repeat;background-size: contain;">
-      <view class="specialBorder">
-        <view class="viewDetail">
-          <text class="viewDetailText">查看详情</text>
-        </view>
-      </view>
-    </view>
     <view class="productInfoView">
-      <block wx:for-items="{{template[3].templateDetails}}">
-        <view class="productView" data-key="{{item}}" bindtap="onProductDetail">
+      <block wx:for-items="{{template[2].templateDetails}}">
+        <view class="productView" data-key="{{item.glassId}}" bindtap="onProductDetail">
           <image src="{{item.photoURL}}" class="productImage" mode="aspectFit"></image>
           <view class="productNameView">
             <text class="productText">{{item.name}}</text>
@@ -68,33 +61,39 @@
     <view class="specialView">
       <view class="topSlash"></view>
       <view class="textArea">
-        <text class="specialTitle">{{template[4].templateDetails[0].title}}</text>
-        <text class="specialSubTitle">{{template[4].templateDetails[0].subTitle}}</text>
+        <text class="specialTitle">{{template[3].templateDetails[0].title}}</text>
+        <text class="specialSubTitle">{{template[3].templateDetails[0].subTitle}}</text>
       </view>
       <view class="bottomSlash"></view>
     </view>
     <view class="productShowView">
       <view class="topShowView">
-        <view class="showView1" style="background-image:{{showFirstStyle.image}};background-size: cover;background-repeat: no-repeat;">
-          <text class="priceText">{{}}</text>
+        <view class="showView1" style="background-image:{{showFirstStyle.image}};background-size: cover;background-repeat: no-repeat;" data-key="{{showFirstStyle.product.prodId}}" bindtap="onProductDetail">
+          <text class="showText">{{showFirstStyle.product.prodDesc}}</text>
           <text class="showNameText">{{showFirstStyle.title}}</text>
+          <view class="showDetailBorder">></view>
         </view>
-        <view class="showView2" style="background-image:{{showSecondStyle.backgroundImage}};background-size: contain;background-repeat: no-repeat;background-position: center;">
+        <view class="showView2" style="background-image:{{showSecondStyle.image}};background-size: contain;background-repeat: no-repeat;background-position: center;" data-key="{{showSecondStyle.product.prodId}}" bindtap="onProductDetail">
           <view class="showSecondBorder">
           </view>
         </view>
       </view>
       <view class="bottomView">
-        <view class="showView3" style="background-image:{{showThirdStyle.backgroundImage}};background-size: contain;background-repeat: no-repeat;background-position: center;">
+        <view class="showView3">
+        <view class="showView3Content" style="background-image:{{showThirdStyle.image}};background-size: cover;background-repeat: no-repeat;background-position: center;" data-key="{{showThirdStyle.product.prodId}}" bindtap="onProductDetail"></view>
         </view>
-        <view class="showView4" style="background-image:{{showFourStyle.backgroundImage}};background-size: contain;background-repeat: no-repeat;background-position: center;">
+        <view class="showView4" style="background-image:{{showFourStyle.image}};background-size: contain;background-repeat: no-repeat;background-position: center;" data-key="{{showFourStyle.product.prodId}}" bindtap="onProductDetail">
           <view class="showView4Border"></view>
+          <view class="showView4TextView">
+            <text class="showText">{{showFourStyle.product.prodDesc}}</text>
+            <text class="showNameText">{{showFourStyle.title}}</text>
+          </view>
         </view>
       </view>
     </view>
     <view class="recommendView">
       <view class="topRecommendView">
-        <image src="{{recommendProducts[0].photoURL}}" class="productImage" mode="aspectFit" bindtap="onProductDetail" data-key="{{recommendProducts[0]}}"></image>
+        <image src="{{recommendProducts[0].photoURL}}" class="productImage" mode="aspectFit" bindtap="onProductDetail" data-key="{{recommendProducts[0].glassId}}"></image>
         <view class="productNameView">
           <text class="productText">{{recommendProducts[0].name}}</text>
           <text class="priceText">RMB {{recommendProducts[0].price}}</text>
@@ -102,20 +101,31 @@
       </view>
       <view class="bottomRecommendView">
         <view class="bottomRecommendProductView">
-          <image src="{{recommendProducts[1].photoURL}}" class="productImage" mode="aspectFit" bindtap="onProductDetail" data-key="{{recommendProducts[0]}}"></image>
+          <image src="{{recommendProducts[1].photoURL}}" class="productImage" mode="aspectFit" bindtap="onProductDetail" data-key="{{recommendProducts[0].glassId}}"></image>
           <view class="productNameView">
             <text class="productText">{{recommendProducts[1].name}}</text>
             <text class="priceText">RMB {{recommendProducts[1].price}}</text>
           </view>
         </view>
         <view class="bottomRecommendProductView">
-          <image src="{{recommendProducts[2].photoURL}}" class="productImage" mode="aspectFit" bindtap="onProductDetail" data-key="{{recommendProducts[0]}}"></image>
+          <image src="{{recommendProducts[2].photoURL}}" class="productImage" mode="aspectFit" bindtap="onProductDetail" data-key="{{recommendProducts[0].glassId}}"></image>
           <view class="productNameView">
             <text class="productText">{{recommendProducts[2].name}}</text>
             <text class="priceText">RMB {{recommendProducts[2].price}}</text>
           </view>
         </view>
       </view>
+    </view>
+    <view class="productInfoView">
+      <block wx:for-items="{{template[6].templateDetails}}">
+        <view class="productView" data-key="{{item.glassId}}" bindtap="onProductDetail">
+          <image src="{{item.photoURL}}" class="productImage" mode="aspectFit"></image>
+          <view class="productNameView">
+            <text class="productText">{{item.name}}</text>
+            <text class="priceText">RMB {{item.price}}</text>
+          </view>
+        </view>
+      </block>
     </view>
   </view>
 </view>

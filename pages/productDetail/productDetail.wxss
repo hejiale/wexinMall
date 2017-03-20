@@ -90,12 +90,17 @@ page {
 .keyText {
   margin-left: 20px;
   font-size: 13px;
+  width: 20%;
 }
 
 .valueText {
-  margin-left: 20px;
+  margin-left: 10px;
   font-size: 11px;
+  width: 60%;
   color: lightgrey;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .webView {

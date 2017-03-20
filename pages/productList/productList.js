@@ -32,7 +32,8 @@ Page({
     scrollTop: 0,
     deviceWidth: 0,
     deviceHeight: 0,
-    hasMore: true
+    hasMore: true,
+    showLoadMore: false
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
@@ -247,12 +248,7 @@ Page({
             var propertyObject = new Object();
             propertyObject.title = key;
             propertyObject.isOpen = false;
-            if (value.length > 6) {
-              propertyObject.isShowOpen = 'show';
-            } else {
-              propertyObject.isShowOpen = 'hide';
-            }
-
+  
             for (var i = 0; i < value.length; i++) {
               var valueObject = new Object();
               valueObject.title = value[i];
@@ -353,5 +349,5 @@ Page({
     } else {
       that.setData({ isShowToTop: 'hide' })
     }
-  },
+  }
 })

@@ -32,13 +32,13 @@
         <image src="../images/icon_arrow.png" class="arrowImage"></image>
       </navigator>
     </view>
-    <view class="address">
+    <view class="bindPhone">
       <navigator url="../address/address" class="navigator">
         <view class="titleContent">
           <image src="../images/address.png" class="leftImage"></image>
-          <text class="Text">地址</text>
+          <text class="Text">{{bindPhone}}</text>
+          <text class="bindPhoneTag">已绑定</text>
         </view>
-        <image src="../images/icon_arrow.png" class="arrowImage"></image>
       </navigator>
     </view>
     <view class="book">
