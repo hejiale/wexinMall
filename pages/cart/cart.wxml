@@ -38,7 +38,7 @@
         </view>
       </block>
     </scroll-view>
-    <view class="footView">
+    <view class="footView" wx:if="{{allCartList.length > 0}}">
       <text class="editText" wx:if="{{!canEdit}}" bindtap="onTapEdit">编辑</text>
       <view class="chooseAllView" wx:if="{{canEdit}}">
         <image src="../images/radioUncheck.png" wx:if="{{!isChooseAll&&canEdit}}" class="iconImage" mode="aspectFit" bindtap="onChooseAll"></image>

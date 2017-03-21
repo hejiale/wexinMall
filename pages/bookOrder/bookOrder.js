@@ -66,7 +66,7 @@ Page({
             opmetory.addRight = res.data.result.addRight;
             opmetory.correctedVisionLeft = res.data.result.correctedVisionLeft;
             opmetory.correctedVisionRight = res.data.result.correctedVisionRight;
-            that.setData({ isBookOpmetory: false, defaultOpmetory: opmetory,isShowOpmetory:'show'});
+            that.setData({ isBookOpmetory: false, defaultOpmetory: opmetory, isShowOpmetory: 'show' });
           } else {
             that.setData({ isBookOpmetory: true })
           }

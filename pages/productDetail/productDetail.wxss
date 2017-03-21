@@ -37,8 +37,12 @@ page {
 
 .productName {
   margin-left: 20px;
+  width: 80%;
   font-size: 13px;
   color: lightgray;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .priceText {
@@ -91,16 +95,15 @@ page {
   margin-left: 20px;
   font-size: 13px;
   width: 20%;
+  line-height: 25px;
 }
 
 .valueText {
   margin-left: 10px;
   font-size: 11px;
-  width: 60%;
+  width: 80%;
   color: lightgrey;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  line-height: 25px;
 }
 
 .webView {

@@ -6,7 +6,7 @@ Page({
     productList: [],
     showOrHide: 'show',
     showContent: 'show',
-    showSearchContent:'hide',
+    showSearchContent: 'hide',
     classList: ['镜架',
       '太阳眼镜',
       '定制类眼镜',
@@ -22,6 +22,7 @@ Page({
     propertyNameList: [],
     currentPage: 0,
     keyWord: '',
+    inputKeyWord: '',
     startPrice: '',
     endPrice: '',
     selectedPropertys: [],
@@ -33,7 +34,9 @@ Page({
     deviceWidth: 0,
     deviceHeight: 0,
     hasMore: true,
-    showLoadMore: false
+    showLoadMore: false,
+    isHideClear: 'hide',
+    historySearchWords: []
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
@@ -59,6 +62,7 @@ Page({
       that.setData({ deviceWidth: systemInfo.windowWidth, deviceHeight: systemInfo.windowHeight })
     })
   },
+  //----------跳转商品详情--------------//
   onProductDetail: function (event) {
     var value = event.currentTarget.dataset.key;
     var proId = value.id.split("-")
@@ -66,34 +70,51 @@ Page({
       url: '../productDetail/productDetail?id=' + proId[1]
     })
   },
-  onClassClicked: function (e) {
-    this.setData({ showOrHide: 'show' });
+  //--------------搜索商品-----------------//
+  onSearchAction: function () {
+    var that = this;
+    that.setData({ showSearchContent: 'show', inputKeyWord: this.data.keyWord })
+    that.onUpdateSearchHistoryView();
   },
-  onSearchProduct: function (event) {
+  onSearchProduct: function () {
     var that = this
-    that.setData({ keyWord: event.detail.value, currentPage: 0 ,showSearchContent:'hide'})
+    that.setData({ keyWord: that.data.inputKeyWord, currentPage: 0, showSearchContent: 'hide' })
     that.data.allProductList.splice(0, that.data.allProductList.length);
     that.queryProducts();
+    that.onUpdateHistorySearchWords();
   },
-  onSearchAction: function(){
-    this.setData({showSearchContent: 'show'})
+  //---------------搜索输入框编辑-------------------//
+  onSearchEditFocus: function () {
+    this.setData({ isHideClear: 'show' })
   },
-  onCancelAction: function(){
-    this.setData({showSearchContent: 'hide'})
+  onCancleEditFocus: function () {
+    this.setData({ isHideClear: 'hide' })
   },
+  onSearchInput: function (event) {
+    this.setData({ inputKeyWord: event.detail.value });
+  },
+  onCancelAction: function () {
+    this.setData({ showSearchContent: 'hide', inputKeyWord: '' })
+  },
+  onClearSearchText: function () {
+    this.setData({ inputKeyWord: '' })
+  },
+  //-------------隐藏背景--------------//
   onBgClicked: function () {
     this.setData({ showOrHide: 'hide' });
   },
+  //--------------筛选-------------//
+  onClassClicked: function (e) {
+    this.setData({ showOrHide: 'show' });
+  },
   //---------------选择类别----------------//
-  onUnSelectedClass: function (event) {
+  onSelectedClass: function (event) {
     var value = event.currentTarget.dataset.key;
     var that = this;
-    that.setData({ currentTypeName: value, startPrice: '', endPrice: '', currentPage: 0 ,scrollTop: 0});
+    that.setData({ currentTypeName: value, startPrice: '', endPrice: '', currentPage: 0, scrollTop: 0, keyWord: '', showOrHide: 'hide' });
     that.data.selectedPropertys.splice(0, that.data.selectedPropertys.length);
     that.data.allProductList.splice(0, that.data.allProductList.length);
     that.queryCategorys();
-  },
-  onSelectedClass: function (event) {
   },
   //----------------选择属性参数-----------------//
   onSelectProperty: function (event) {
@@ -125,6 +146,19 @@ Page({
     that.data.allProductList.splice(0, that.data.allProductList.length);
     that.queryCategorys();
   },
+  onFilterOpen: function (event) {
+    console.log(event);
+    var that = this;
+    var data = event.currentTarget.dataset.key;
+    var allProperty = that.data.allProperty;
+    for (var i = 0; i < allProperty.length; i++) {
+      var property = allProperty[i];
+      if (property.title == data.title) {
+        property.isOpen = !property.isOpen;
+      }
+    }
+    that.setData({ allProperty: allProperty });
+  },
   //--------------输入价格操作----------------//
   onStartPriceClicked: function (event) {
     if (parseFloat(event.detail.value) > parseFloat(this.data.endPrice)) {
@@ -144,11 +178,12 @@ Page({
   },
   onResetProperty: function () {
     var that = this;
-    that.setData({ currentTypeName: "镜架", startPrice: '', endPrice: '', currentPage: 0, scrollTop: 0 });
+    that.setData({ currentTypeName: "镜架", startPrice: '', endPrice: '', currentPage: 0, scrollTop: 0, keyWord: '' });
     that.data.selectedPropertys.splice(0, that.data.selectedPropertys.length);
     that.data.allProductList.splice(0, that.data.allProductList.length);
     that.queryCategorys();
   },
+  //------------加载更多--------------//
   onLoadMore: function () {
     var that = this;
     var page = that.data.currentPage;
@@ -156,23 +191,11 @@ Page({
     that.setData({ currentPage: page });
     that.queryProducts();
   },
+  //-------------置顶操作--------------//
   goTopScroll: function () {
     this.setData({
       scrollTop: 0
     })
-  },
-  onFilterOpen: function (event) {
-    console.log(event);
-    var that = this;
-    var data = event.currentTarget.dataset.key;
-    var allProperty = that.data.allProperty;
-    for (var i = 0; i < allProperty.length; i++) {
-      var property = allProperty[i];
-      if (property.title == data.title) {
-        property.isOpen = !property.isOpen;
-      }
-    }
-    that.setData({ allProperty: allProperty });
   },
   //-------------------类型名称-----------------//
   getTypeName: function () {
@@ -187,9 +210,9 @@ Page({
       typeName = 'READING_GLASSES';
     } else if (this.data.currentTypeName == '隐形眼镜') {
       typeName = 'CONTACT_LENSES';
-    }else if (this.data.currentTypeName == '镜片') {
+    } else if (this.data.currentTypeName == '镜片') {
       typeName = 'LENS';
-    }else if (this.data.currentTypeName == '配件') {
+    } else if (this.data.currentTypeName == '配件') {
       typeName = 'ACCESSORY';
     }
     this.setData({ currentType: typeName })
@@ -248,7 +271,11 @@ Page({
             var propertyObject = new Object();
             propertyObject.title = key;
             propertyObject.isOpen = false;
-  
+            propertyObject.isShowOpen = 'hide';
+            if(value.length > 3){
+              propertyObject.isShowOpen = 'show';
+            }
+
             for (var i = 0; i < value.length; i++) {
               var valueObject = new Object();
               valueObject.title = value[i];
@@ -278,7 +305,7 @@ Page({
       },
     })
   },
-  //-------------筛选商品-------------//
+  //-------------查询商品-------------//
   queryProducts: function () {
     wx.showToast({
       title: '加载中...',
@@ -306,6 +333,7 @@ Page({
     if (that.data.endPrice) {
       filterObject.endPrice = parseFloat(that.data.endPrice);
     }
+
     wx.request({
       url: app.HostURL + '/wechat/webapp/mall/searchProduct',
       data: JSON.stringify(filterObject),
@@ -341,6 +369,52 @@ Page({
       }
     })
   },
+  //---------------HistorySearch Word------------------//
+  onUpdateHistorySearchWords: function () {
+    var that = this;
+    if(that.data.historySearchWords.length > 0){
+      wx.getStorage({
+      key: 'historySearchWords',
+      success: function (res) {
+        if (res) {
+          var historyWords = res.data;
+          if (historyWords.indexOf(that.data.keyWord) == -1) {
+            historyWords.push(that.data.keyWord);
+            wx.setStorageSync('historySearchWords', historyWords);
+          }
+        }
+      }
+    })
+    }else{
+      var historyList = new Array();
+          historyList.push(that.data.keyWord);
+          wx.setStorage({
+            key: 'historySearchWords',
+            data: historyList,
+          })
+    }
+  },
+  onUpdateSearchHistoryView: function () {
+    var that = this;
+    wx.getStorage({
+      key: 'historySearchWords',
+      success: function (res) {
+        if(res){
+          that.setData({ historySearchWords: res.data });
+        }
+      }
+    })
+  },
+  onClearHistoryWords: function () {
+    var that = this;
+    wx.removeStorage({
+      key: 'historySearchWords',
+      success: function(res){
+        that.setData({historySearchWords: []});
+      }
+    })
+  },
+  //-----------scrollView 滚动-------------//
   scroll: function (event) {
     console.log(event.detail.scrollTop)
     var that = this;

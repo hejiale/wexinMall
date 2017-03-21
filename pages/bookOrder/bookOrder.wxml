@@ -27,9 +27,8 @@
     <view class="hasOpmetory" bindtap="onSelectOpmetory">
       <image src="../images/radioUncheck.png" class="iconImage" wx:if="{{isBookOpmetory}}"></image>
       <image src="../images/radio.png" class="iconImage" wx:else></image>
-      <text class="opmetoryTitleText">已有验光单</text>
+      <text class="opmetoryTitleText">历史验光单</text>
     </view>
-    <view class="opmetroyLine"></view>
     <view class="selectOpmetoryInfo {{isShowOpmetory}}">
       <view class="opmetoryInfoView">
         <view class="rightView">
@@ -96,10 +95,11 @@
         </view>
       </view>
     </view>
+    <view class="opmetroyLine"></view>
     <view class="bookOpmetory" bindtap="onBookOpmetory">
       <image src="../images/radioUncheck.png" class="iconImage" wx:if="{{!isBookOpmetory}}"></image>
       <image src="../images/radio.png" class="iconImage" wx:else></image>
-      <text class="opmetoryTitleText">预约验光单</text>
+      <text class="opmetoryTitleText">预约验光</text>
     </view>
     <view class="storeAddressView">
       <text class="TopTitle">店铺地址</text>

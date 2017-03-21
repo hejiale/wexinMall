@@ -78,7 +78,7 @@
           <text class="TitleText">类别</text>
           <view class="classesView">
             <block wx:for-items="{{classList}}">
-              <view class="classItem" style="background-color: #fbf9fe;" wx:if="{{currentTypeName != item}}" data-key="{{item}}" bindtap="onUnSelectedClass">
+              <view class="classItem" style="background-color: #fbf9fe;" wx:if="{{currentTypeName != item}}" data-key="{{item}}" bindtap="onSelectedClass">
                 <label class="classItemText" style="color:gray">{{item}}</label>
               </view>
               <view class="classItem" style="background-color: #63a0d4;" wx:else bindtap="onSelectedClass" data-key="{{item}}">
@@ -118,22 +118,41 @@
 </view>
 <view class="searchContentView {{showSearchContent}}">
   <view class="topMenuView">
-    <view class="search-input" bindtap="onSearchAction">
+    <view class="search-input">
       <image class="search-icon" src="../images/icon_search.png" mode="aspectFit" />
-      <input class="inputSearch" bindconfirm="onSearchProduct" placeholder="搜索本店所有商品" placeholder-style="font-size: 12px;color:lightgray;" />
+      <input class="inputSearch" placeholder="搜索所有{{currentTypeName}}类商品" placeholder-style="font-size: 12px;color:lightgray;" bindfocus="onSearchEditFocus" bindblur="onCancleEditFocus" bindinput="onSearchInput" value="{{inputKeyWord}}" maxlength="30"/>
+      <view class="clearIcon {{isHideClear}}" bindtap="onClearSearchText">
+        <image src="../images/clear_icon.png" class="clearIconImg" mode="aspectFit"></image>
+      </view>
     </view>
-    <text style="font-size: 13px;color: gray;padding: 5px;" bindtap="onCancelAction">取消</text>
+    <view class="searchRightView">
+      <text style="font-size: 13px;color: red;" bindtap="onSearchProduct" wx:if="{{inputKeyWord.length > 0}}">搜索</text>
+      <text style="font-size: 13px;color: gray;" bindtap="onCancelAction" wx:else>取消</text>
+    </view>
   </view>
-  <view class="hotSearchView">
-    <text class="hotTitle">热门搜索</text>
+  <view class="hotSearchView" wx:if="{{historySearchWords.length > 0}}">
+    <view class="hotSearchTopView">
+      <text class="hotTitle">历史搜索</text>
+      <text style="font-size: 13px;color: red;margin-right: 10px;" bindtap="onClearHistoryWords">清除</text>
+    </view>
+    <view class="hotItemView">
+      <block wx:for-items="{{historySearchWords}}">
+        <view class="searchClassItem" style="background-color: #fbf9fe;" data-key="{{item}}">
+          <label class="searchClassItemText" style="color:gray">{{item}}</label>
+        </view>
+      </block>
+    </view>
   </view>
 </view>
 <view class="page {{showContent}}">
   <view class="topMenuView">
     <view class="search-input" bindtap="onSearchAction">
-      <image class="search-icon" src="../images/icon_search.png" mode="aspectFit" />
-      <text class="serach-text" style="margin: 0px;width: 100%;line-height: 30px;font-size: 13px;color:black" wx:if="{{keyWord.length > 0}}">{{keyWord}}</text>
-      <text class="serach-text" style="margin: 0px;width: 100%;line-height: 30px;font-size: 12px;color:lightgray" wx:else>搜索本店所有商品</text>
+      <image class="filter-icon" src="../images/address.png" mode="aspectFit" />
+      <text class="filterTypeText">{{currentTypeName}}</text>
+      <view class="searchSpaceLine"></view>
+      <text class="serach-text" style="color:grey;" wx:if="{{keyWord.length > 0}}">{{keyWord}}</text>
+      <text class="serach-text" wx:else style="color:lightgrey;">搜索所有商品</text>
+      <image src="../images/icon_search.png" mode="aspectFit" class="search-icon-content"></image>
     </view>
     <view class="classImageView" bindtap="onClassClicked">
       <image class="class-img" src="../images/icon_class.png" mode="aspectFit" />
