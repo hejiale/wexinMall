@@ -3,7 +3,7 @@ var app = getApp();
 Page({
   data: {
     userInfo: null,
-    showLogin: 'show',
+    showLogin: 'hide',
     showPerson: 'hide',
     bindPhone: ''
   },
@@ -41,6 +41,14 @@ Page({
     var that = this;
     var ipcApp = app.globalData.ipcApp
 
+    var value = wx.getStorageSync('isBindPhone');
+    if (!value) {
+      that.setData({
+        showPerson: 'hide',
+        showLogin: 'show'
+      })
+    }
+
     wx.getStorage({
       key: 'isBindPhone',
       success: function (res) {
@@ -48,11 +56,6 @@ Page({
           that.setData({
             showPerson: 'show',
             showLogin: 'hide'
-          })
-        } else {
-          that.setData({
-            showPerson: 'hide',
-            showLogin: 'show'
           })
         }
 

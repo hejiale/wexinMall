@@ -4,22 +4,32 @@ var app = getApp();
 Page({
   data: {
     storeList: [],
-    showLogin: 'show',
+    showLogin: 'hide',
     showStore: 'hide'
   },
   onShow: function () {
     // 页面显示
     var that = this;
+
+    var value = wx.getStorageSync('isBindPhone');
+    if (!value) {
+      that.setData({
+        showStore: 'hide',
+        showLogin: 'show'
+      })
+    }
+
     wx.getStorage({
       key: 'isBindPhone',
       success: function (res) {
         console.log(res)
-        that.setData({
-          showStore: res.data ? 'show' : 'hide',
-          showLogin: res.data ? 'hide' : 'show'
-        })
 
         if (res.data) {
+          that.setData({
+            showStore: 'show',
+            showLogin: 'hide'
+          })
+
           app.onLogin(function () {
             wx.request({
               url: app.HostURL + '/wechat/webapp/store/listStore',

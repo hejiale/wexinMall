@@ -4,7 +4,7 @@ var app = getApp()
 Page({
   data: {
     currentStoreID: 0,
-    showAlert: 'show',
+    showAlert: 'hide',
     showContent: 'hide',
     indicator: false,
     template: [],
@@ -33,6 +33,15 @@ Page({
   onShow: function () {
     // 页面显示
     var that = this;
+    
+    var store = wx.getStorageSync('store');
+    if ( !store) {
+      that.setData({
+        showAlert: 'show',
+        showContent: 'hide',
+      })
+    }
+
     wx.getStorage({
       key: 'store',
       success: function (res) {
@@ -40,7 +49,6 @@ Page({
           var storeID = res.data.storeId;
           that.setData({
             showAlert: 'hide',
-            showContent: 'show',
             currentStoreID: storeID,
           })
           if (storeID > 0) {
@@ -58,11 +66,6 @@ Page({
                 that.onShowTemplate(storeID);
               })
             }
-          } else {
-            that.setData({
-              showAlert: 'show',
-              showContent: 'hide',
-            })
           }
         }
       }
@@ -125,7 +128,7 @@ Page({
         that.setData({ showFourStyle: showProductInfo });
         //----------推荐商品-----------//
         var recommends = templates[5].templateDetails;
-        that.setData({ recommendProducts: recommends });
+        that.setData({ recommendProducts: recommends, showContent: 'show' });
         wx.hideToast();
       }
     })

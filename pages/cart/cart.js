@@ -4,7 +4,7 @@ var app = getApp();
 Page({
   data: {
     showContent: 'hide',
-    showLogin: 'show',
+    showLogin: 'hide',
     allCartList: [],
     canEdit: false,
     isChooseAll: false,
@@ -17,13 +17,18 @@ Page({
       url: '../login/login'
     })
   },
-  onReady: function () {
-    // 页面渲染完成
-  },
   onShow: function () {
     // 页面显示
     var that = this;
     var ipcApp = app.globalData.ipcApp
+
+    var value = wx.getStorageSync('isBindPhone');
+    if (!value) {
+      that.setData({
+        showContent: 'hide',
+        showLogin: 'show'
+      })
+    }
 
     wx.getStorage({
       key: 'isBindPhone',
@@ -32,11 +37,6 @@ Page({
           that.setData({
             showContent: 'show',
             showLogin: 'hide'
-          })
-        } else {
-          that.setData({
-            showContent: 'hide',
-            showLogin: 'show'
           })
         }
 
